@@ -12,7 +12,3 @@ for (const [platform, url] of Object.entries(appLinks)) {
   if (url && /^https:\/\//.test(url)) { link.href = url; link.target = '_blank'; link.rel = 'noopener noreferrer'; link.querySelector('small').textContent = 'Tải ứng dụng trên'; link.setAttribute('aria-label', `Tải BBook trên ${platform === 'ios' ? 'App Store' : 'Google Play'}`); }
   else link.setAttribute('aria-disabled', 'true');
 }
-if (Object.values(appLinks).some(Boolean)) {
-  document.querySelector('.download > p').textContent = 'Khám phá Makeup Artist và đặt lịch trang điểm ngay trên ứng dụng BBook.';
-  document.querySelector('.download-status').textContent = 'Chọn nền tảng phù hợp để tải ứng dụng';
-}

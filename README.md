@@ -28,3 +28,7 @@ Các file website nằm trong `dist/`, có thể đưa lên dịch vụ hosting 
 - `favicon.svg`: biểu tượng website.
 
 Mockup app là minh họa bằng HTML/CSS, không phải screenshot thật. Không sử dụng đánh giá, số lượng người dùng hay số liệu giả. Chưa tích hợp analytics, form, link store hay nội dung pháp lý do chưa có dữ liệu chính thức. Trước khi phát hành công khai, bổ sung chính sách quyền riêng tư/điều khoản đã được duyệt và thông tin liên hệ.
+
+## Bản trải nghiệm Android
+
+APK được lưu tại `assets/downloads/bbook-android.apk` và tải trực tiếp bằng nút trong `index.html`, kể cả khi JavaScript bị tắt. Thay file này để cập nhật bản thử nghiệm; đồng thời cập nhật dung lượng hiển thị. `npm run build` sao chép cả APK sang `dist/assets/downloads/`. Khi đưa website lên hosting static, cần tải lên toàn bộ `dist/` và chọn dịch vụ hỗ trợ file 114 MB. Người dùng không cần tài khoản Expo. Link cửa hàng được cấu hình riêng trong `appLinks`.
