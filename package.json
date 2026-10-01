@@ -3,5 +3,5 @@
   "version": "1.0.0",
   "private": true,
   "description": "BBook — landing page giới thiệu ứng dụng",
-  "scripts": { "dev": "node scripts/serve.mjs", "start": "node scripts/serve.mjs", "build": "node scripts/build.mjs" }
+  "scripts": { "dev": "node scripts/serve.mjs", "start": "node scripts/serve.mjs", "package:apk": "node scripts/package-apk.mjs", "build": "node scripts/build.mjs" }
 }
