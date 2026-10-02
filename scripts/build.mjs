@@ -1,6 +1,7 @@
 import { mkdir, copyFile, cp, readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
+import './generate-legal.mjs';
 const root = path.resolve(import.meta.dirname, '..');
 const release = path.join(root, 'apk-release');
 const manifest = JSON.parse(await readFile(path.join(release, 'manifest.json'), 'utf8'));
@@ -11,6 +12,6 @@ if (apk.length !== manifest.size || createHash('sha256').update(apk).digest('hex
 await mkdir(path.join(root, 'assets/downloads'), { recursive: true });
 await writeFile(path.join(root, 'assets/downloads/bbook-android.apk'), apk);
 await mkdir(path.join(root, 'dist'), { recursive: true });
-for (const file of ['index.html', 'styles.css', 'app.js', 'favicon.svg']) await copyFile(path.join(root, file), path.join(root, 'dist', file));
+for (const file of ['index.html', 'styles.css', 'app.js', 'favicon.svg', 'privacy.html', 'delete-account.html', 'legal.css']) await copyFile(path.join(root, file), path.join(root, 'dist', file));
 await cp(path.join(root, 'assets'), path.join(root, 'dist', 'assets'), { recursive: true });
 console.log('Build hoàn tất: dist/');
