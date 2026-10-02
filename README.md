@@ -20,6 +20,12 @@ npm run build
 
 Các file website nằm trong `dist/`, có thể đưa lên dịch vụ hosting static.
 
+Trang chính sách có URL không đuôi: `/privacy/` và `/delete-account/`.
+Build tạo `privacy/index.html` và `delete-account/index.html` trong `dist/`;
+hosting cần hỗ trợ directory index. Các URL `.html` cũ vẫn được giữ.
+Sau khi tự deploy, kiểm tra hai URL mới tải đúng nội dung, CSS và email hỗ trợ
+trước khi thay URL trong Google Play Console. Việc sửa local không cập nhật website production.
+
 ## Chỉnh nội dung
 
 - `index.html`: nội dung và bố cục các section.

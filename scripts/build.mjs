@@ -14,4 +14,5 @@ await writeFile(path.join(root, 'assets/downloads/bbook-android.apk'), apk);
 await mkdir(path.join(root, 'dist'), { recursive: true });
 for (const file of ['index.html', 'styles.css', 'app.js', 'favicon.svg', 'privacy.html', 'delete-account.html', 'legal.css']) await copyFile(path.join(root, file), path.join(root, 'dist', file));
 await cp(path.join(root, 'assets'), path.join(root, 'dist', 'assets'), { recursive: true });
+for (const directory of ['privacy', 'delete-account']) await cp(path.join(root, directory), path.join(root, 'dist', directory), { recursive: true });
 console.log('Build hoàn tất: dist/');
