@@ -7,7 +7,9 @@ const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 
 const server = http.createServer(async (req, res) => {
   try {
     const url = new URL(req.url, 'http://localhost');
-    const file = path.resolve(root, '.' + decodeURIComponent(url.pathname === '/' ? '/index.html' : url.pathname));
+    const routes = { '/privacy': '/privacy.html', '/privacy/': '/privacy.html', '/delete-account': '/delete-account.html', '/delete-account/': '/delete-account.html' };
+    const pathname = decodeURIComponent(url.pathname);
+    const file = path.resolve(root, '.' + (pathname === '/' ? '/index.html' : routes[pathname] || pathname));
     const relative = path.relative(root, file);
     const isAsset = relative.startsWith('assets' + path.sep) && Object.hasOwn(types, path.extname(file));
     if (relative.startsWith('..') || path.isAbsolute(relative) || (!['index.html', 'styles.css', 'app.js', 'favicon.svg', 'privacy.html', 'delete-account.html', 'legal.css'].includes(relative) && !isAsset)) { res.writeHead(404); res.end('Not found'); return; }

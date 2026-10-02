@@ -28,6 +28,8 @@ Trao đổi và nội dung: tin nhắn và ảnh trong chat, bình luận/đánh
 
 Thông báo và vận hành: token thông báo đẩy, nền tảng, tên thiết bị, trạng thái và thời điểm đăng ký token; thông báo trong app và thông tin lỗi được ghi trong quá trình vận hành. Lượt truy cập ảnh xác minh được ghi với mã ảnh và mã người truy cập. Nội dung bạn gửi email hỗ trợ cũng thuộc dữ liệu yêu cầu hỗ trợ.
 
+Khi khách hàng xác nhận hoặc hệ thống tự xác nhận booking hoàn thành, thu nhập MUA được mở để gửi yêu cầu rút ngay nếu không có khiếu nại hoặc nghĩa vụ chưa giải quyết; tiền vào tài khoản nhận vẫn chờ admin xử lý chuyển khoản. Khách hàng có 24 giờ để xác nhận hoặc báo vấn đề sau khi MUA gửi hoàn thành. Trong 48 giờ sau hoàn thành, khách hàng có thể gửi hồ sơ hỗ trợ trong app; ngoài thời gian này có thể liên hệ bbooksupport@gmail.com. Yêu cầu hỗ trợ có thể tạm dừng khoản chưa chi trả; khoản đã chi trả cần đối soát thủ công, không tự động thu hồi hoặc hoàn tiền.
+
 
 
 3. Quyền truy cập và khả năng hiển thị
