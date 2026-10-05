@@ -191,46 +191,53 @@
   },
   "deletion": {
     "title": "Yêu cầu xóa tài khoản và dữ liệu BBook",
+    "intro": "Bạn có thể yêu cầu xóa tài khoản và dữ liệu liên quan ngay trong BBook. Nếu không thể truy cập ứng dụng, hãy gửi yêu cầu qua email hỗ trợ. Bạn không cần đăng nhập hoặc cài lại ứng dụng để sử dụng trang này.",
     "sections": [
       {
-        "title": "1. Gửi yêu cầu không cần đăng nhập",
+        "title": "1. Xóa tài khoản trong ứng dụng",
         "paragraphs": [
-          "Ngoài app, gửi thư từ email đăng ký BBook đến bbooksupport@gmail.com, tiêu đề “Yêu cầu xóa tài khoản BBook”. Nêu email hoặc mã tài khoản và yêu cầu xóa tài khoản cùng dữ liệu liên quan; có thể nêu riêng loại dữ liệu. Không gửi mật khẩu, OTP, thông tin thẻ hoặc ảnh CCCD. Nếu không còn truy cập email đăng ký, liên hệ để được hướng dẫn xác minh.",
-          "bbooksupport@gmail.com là email hỗ trợ chính thức của BBook, được chủ ứng dụng theo dõi để tiếp nhận yêu cầu ngoài app. Bạn không cần đăng nhập hoặc cài lại app để gửi thư. Nếu không truy cập email đăng ký, hãy liên hệ để được hướng dẫn xác minh; không gửi giấy tờ nhạy cảm qua trang này.",
-          "Bấm “Soạn email yêu cầu xóa tài khoản”, kiểm tra nội dung và gửi bằng ứng dụng email của bạn. Trang không tự gửi yêu cầu. Bộ phận hỗ trợ thông báo tiếp nhận, thời gian dự kiến và kết quả cho trường hợp cụ thể; chưa có cam kết mọi yêu cầu được hoàn tất trong 72 giờ hay 30 ngày."
+          "Đối với khách hàng, mở Tài khoản → Xóa tài khoản. Đối với MUA, mở Profile → Cài đặt → Xóa tài khoản. Đọc thông tin hiển thị và xác nhận yêu cầu xóa.",
+          "BBook kiểm tra các lịch hẹn đang hoạt động, tiền đặt cọc đang giữ, thanh toán hoặc nạp tiền chưa hoàn tất, hoàn tiền, khoản MUA chưa nhận hoặc khoản chi trả chưa giải quyết, số dư và khiếu nại đang mở. Nếu còn những việc này, yêu cầu được ghi nhận nhưng tài khoản chưa được xóa. Hãy liên hệ hỗ trợ để giải quyết và xác nhận xóa lại sau khi hoàn tất."
         ]
       },
       {
-        "title": "2. Thao tác trong ứng dụng và điều kiện",
+        "title": "2. Yêu cầu xóa khi không thể truy cập ứng dụng",
         "paragraphs": [
-          "Trong app, khách hàng mở Cá nhân → Xóa tài khoản; MUA mở Cài đặt → Xóa tài khoản. Máy chủ kiểm tra lịch hẹn, tiền đặt cọc, thanh toán, hoàn tiền, chi trả, khiếu nại và số dư. Nếu còn nghĩa vụ chưa giải quyết, yêu cầu được ghi nhận và bạn được hướng dẫn liên hệ hỗ trợ; tài khoản chưa bị xóa bởi thao tác đó."
+          "Gửi email đến bbooksupport@gmail.com với tiêu đề “Yêu cầu xóa tài khoản BBook”. Cung cấp email đăng ký hoặc mã tài khoản và cho biết bạn muốn xóa tài khoản cùng dữ liệu liên quan.",
+          "BBook cần xác minh yêu cầu đến từ chủ tài khoản trước khi xử lý. Nếu không còn truy cập email đăng ký, hãy liên hệ để được hướng dẫn. Không gửi mật khẩu, mã OTP, thông tin thẻ thanh toán hoặc ảnh CCCD qua email.",
+          "Nút “Soạn email yêu cầu xóa tài khoản” mở ứng dụng email và điền sẵn nội dung mẫu. Bạn cần kiểm tra, bổ sung thông tin và gửi thư; trang này không tự gửi yêu cầu."
         ]
       },
       {
-        "title": "3. Dữ liệu được xử lý khi thao tác trong app thành công",
+        "title": "3. Điều gì xảy ra khi tài khoản được xóa?",
         "paragraphs": [
-          "Khi đủ điều kiện, tài khoản bị vô hiệu hóa, tên và email được thay bằng giá trị nội bộ, số điện thoại và liên kết avatar được bỏ, thông tin xác thực mật khẩu được thay thế. Token đăng nhập cũ bị từ chối trên các yêu cầu mới; kết nối chat được thu hồi. Không thể khôi phục tài khoản đã xóa bằng cách đăng nhập lại; đăng ký mới không khôi phục dữ liệu cũ.",
-          "Dữ liệu cá nhân MUA được dọn: giới thiệu, địa chỉ, khu vực/tọa độ, mạng xã hội, liên kết CCCD hai mặt, chân dung, chứng chỉ và thông tin xét duyệt. Lịch làm việc, ngày nghỉ, khu vực hoạt động, phong cách và quan hệ theo dõi được xóa. Portfolio bị ẩn và bỏ nội dung/ảnh; dịch vụ bị vô hiệu hóa và bỏ nội dung/ảnh. Một số bản ghi gốc còn giữ mã liên kết với lịch sử dịch vụ.",
-          "Token thông báo đẩy, thông báo trong app, OTP theo email hiện tại, lượt thích/lưu và phản ứng tin nhắn thuộc tài khoản được xóa. Nội dung bình luận được thay thế; văn bản và liên kết ảnh tin nhắn do tài khoản gửi, nội dung/ảnh đánh giá và phản hồi MUA được bỏ. Nội dung khiếu nại đã giải quyết do tài khoản gửi được dọn. Điểm đánh giá và cấu trúc liên kết có thể còn lại. Các bản sao tên/nội dung chat trong thông báo gửi cho người nhận khác được dọn trên máy chủ khi xác định được liên kết với tài khoản đang xóa; thông báo chưa gửi tương ứng được ngừng gửi.",
-          "Tài khoản ngân hàng/tài khoản nhận tiền của người đang xóa được bỏ sau khi nghĩa vụ đã tất toán; số tài khoản, tên chủ tài khoản và QR trong bản ghi hoàn tiền/chi trả thuộc người đó được dọn. Không xóa thông tin tài khoản nhận tiền thuộc bên còn lại chỉ vì bạn xóa tài khoản. QR MoMo riêng tư đã biết thuộc tài khoản cũng được đưa vào quy trình xóa file. Máy chủ chỉ ghi nhận hoàn thành dọn Storage sau khi các file đã xác định được chủ sở hữu được xác nhận không còn tồn tại; lỗi nhà cung cấp được thử lại, reference hoặc ownership chưa rõ cần hỗ trợ kiểm tra.",
-          "App dọn AsyncStorage và bộ nhớ truy vấn khi máy chủ tiếp nhận xóa. Thông báo tiếp nhận không xác nhận mọi file đã được xóa: file được xử lý sau bước cơ sở dữ liệu, có kiểm tra và thử lại khi lỗi. Ảnh cũ chưa xác minh hoặc ảnh còn tham chiếu cần hỗ trợ xử lý. Email hỗ trợ là nơi nhận kết quả và tiến độ; không bảo đảm xóa mọi file đã lưu trên thiết bị. App hiển thị mã tham chiếu tài khoản sau khi tiếp nhận; hãy lưu mã này và gửi kèm email khi hỏi tiến độ, vì email hồ sơ đã được thay thế."
+          "Khi yêu cầu đủ điều kiện được xử lý, tài khoản cũ không còn có thể được dùng để đăng nhập. Tên, email, số điện thoại, ảnh đại diện và thông tin đăng nhập gắn với tài khoản được loại bỏ hoặc thay thế. Đăng ký lại bằng email cũ sẽ tạo tài khoản mới, không khôi phục tài khoản hay dữ liệu trước đó.",
+          "Đối với MUA, thông tin giới thiệu, địa chỉ và vị trí hoạt động, liên kết mạng xã hội, lịch làm việc và dữ liệu xác minh được loại bỏ. Hồ sơ không còn hoạt động; portfolio được ẩn và bỏ nội dung, ảnh; dịch vụ không còn khả dụng và được bỏ nội dung, ảnh. Thông tin tài khoản ngân hàng hoặc MoMo nhận tiền thuộc người yêu cầu xóa cũng được loại bỏ sau khi các nghĩa vụ liên quan đã được giải quyết.",
+          "BBook xóa các quan hệ theo dõi, lượt thích, lượt lưu, phản ứng tin nhắn, thông báo và mã nhận thông báo thuộc tài khoản. Văn bản và ảnh tin nhắn do bạn gửi, nội dung và ảnh đánh giá của bạn, phản hồi MUA, bình luận và nội dung khiếu nại thuộc phạm vi xử lý được xóa hoặc thay bằng thông báo nội dung đã xóa. Một số điểm đánh giá và bản ghi lịch sử vẫn có thể còn lại như giải thích bên dưới.",
+          "Ảnh đại diện, ảnh portfolio, ảnh dịch vụ, giấy tờ và ảnh xác minh, ảnh chat, ảnh đánh giá, ảnh khiếu nại và QR MoMo riêng tư được đưa vào quy trình xóa tệp khi xác định được thuộc tài khoản và không còn cần xử lý ở nơi khác. Việc xóa tệp có thể tiếp tục sau khi thông tin hồ sơ đã được xử lý."
         ]
       },
       {
-        "title": "4. Dữ liệu còn lưu và thời hạn",
+        "title": "4. Dữ liệu nào có thể được giữ lại?",
         "paragraphs": [
-          "Lịch sử booking và giao dịch đã tất toán giữ các mã, số tiền, trạng thái và mốc thời gian cần thiết cho đối soát; địa chỉ, tọa độ nơi cung cấp dịch vụ, ghi chú/lý do dạng văn bản, thông tin ngân hàng của tài khoản đang xóa và payload thanh toán không còn cần thiết được loại bỏ. Bản ghi tài khoản/hồ sơ và một số mã liên kết được giữ để bảo toàn quan hệ dữ liệu. Đây không phải cam kết rằng mọi dữ liệu còn lại đã được ẩn danh không thể liên kết lại.",
-          "Điểm đánh giá và cấu trúc cuộc trò chuyện/lịch sử dịch vụ có thể còn lại sau khi nội dung do tài khoản gửi được dọn. Nội dung do bên còn lại tạo không tự động bị xóa theo yêu cầu của một người. Khi có giao dịch hoặc khiếu nại chưa hoàn tất, yêu cầu được ghi nhận nhưng chưa thực hiện xóa dữ liệu cần để giải quyết; sau khi hoàn tất cần xác nhận xử lý xóa lại.",
-          "Ảnh xác minh, ảnh chat và QR MoMo trong kho tài chính riêng tư có bản ghi chủ sở hữu trên máy chủ, cùng ảnh public được ghi nhận chủ sở hữu bằng luồng upload mới, được xử lý xóa thật khỏi Storage nếu không còn tham chiếu cần xử lý. Máy chủ xác nhận file không còn tồn tại trước khi ghi hoàn tất. Nếu nhà cung cấp lỗi, hệ thống giữ checkpoint để thử lại. Ảnh public cũ chưa có bằng chứng chủ sở hữu, ảnh còn được tài khoản khác tham chiếu hoặc nguồn cũ có thay đổi phải được hỗ trợ kiểm tra; không được coi là đã xóa chỉ vì URL trong hồ sơ đã bị bỏ.",
-          "Tài khoản từng dùng luồng upload cũ hoặc đã xóa bằng phiên bản trước cần đối soát cả ảnh không còn URL trong database. Không tự suy ra rằng mọi file thuộc tài khoản cũ đã được tìm thấy; trạng thái cần kiểm tra được giữ đến khi bộ phận hỗ trợ xác minh phạm vi và kết quả.",
-          "BBook hiện chưa áp dụng một thời hạn xóa tự động thống nhất cho lịch sử giao dịch, mã liên kết và nhật ký vận hành. Không dùng thiếu sót trong xử lý ảnh cũ như một lý do lưu giữ pháp lý. Bộ phận hỗ trợ thông báo phạm vi còn lại, lý do và tiến độ khi xử lý yêu cầu; không cam kết mọi yêu cầu hoặc mọi bản sao được xóa trong 72 giờ hay 30 ngày.",
-          "Thời hạn log hạ tầng, vòng đời backup, cache và dữ liệu tại từng nhà cung cấp phụ thuộc cấu hình/dịch vụ chưa được xác nhận trong tài liệu này. Việc xóa trên máy chủ BBook không xác nhận các bản sao trên thiết bị, bản sao người khác đã lưu hoặc dữ liệu nhà cung cấp tự giữ đã được xóa. Liên hệ hỗ trợ để yêu cầu kiểm tra phạm vi này."
+          "BBook giữ một số thông tin tối thiểu của lịch sử booking và giao dịch đã phát sinh, như mã giao dịch, số tiền, trạng thái và thời điểm, để đối soát thanh toán, hoàn tiền và chi trả. Địa chỉ, tọa độ nơi cung cấp dịch vụ, ghi chú và thông tin nhận tiền của người xóa tài khoản được loại bỏ trong phạm vi xử lý.",
+          "Một số mã tài khoản và mã liên kết lịch sử, điểm đánh giá, cấu trúc cuộc trò chuyện và quyết định xử lý báo cáo nội dung vẫn còn. Các quyết định kiểm duyệt được giữ để duy trì kết quả xử lý nội dung; phần mô tả và ghi chú liên quan đến tài khoản được dọn. Những thông tin còn lại không có nghĩa tài khoản tiếp tục hoạt động hoặc mọi bản ghi đã hoàn toàn không thể liên kết với nhau.",
+          "Nội dung do người dùng khác tạo không tự động bị xóa theo yêu cầu của bạn. Thông tin tài khoản nhận tiền của bên còn lại cũng không bị xóa chỉ vì bạn xóa tài khoản. Khi còn giao dịch hoặc khiếu nại đang mở, dữ liệu cần để giải quyết được giữ và việc xóa tài khoản chưa được thực hiện.",
+          "BBook hiện không áp dụng một thời hạn lưu giữ chung cho tất cả dữ liệu còn lại. Bạn có thể liên hệ hỗ trợ để hỏi về phạm vi dữ liệu và việc xử lý trường hợp của mình. Dữ liệu do nhà cung cấp dịch vụ lưu giữ và bản sao người khác đã lưu có thể chịu chính sách riêng; việc xóa tài khoản BBook không đồng nghĩa xóa tài khoản của bạn tại Google hoặc các dịch vụ khác."
         ]
       },
       {
-        "title": "5. Xác nhận kết quả",
+        "title": "5. Theo dõi yêu cầu",
         "paragraphs": [
-          "Yêu cầu hỗ trợ xác nhận tài khoản đã vô hiệu hóa, dữ liệu cơ sở dữ liệu đã dọn, file nào đã được xác nhận xóa và dữ liệu nào còn cần xử lý/được giữ cùng lý do. Nếu nhà cung cấp lỗi hoặc ảnh cũ chưa xác minh được chủ sở hữu, yêu cầu không được coi là đã hoàn tất xóa file. Thông báo tiếp nhận trong app không đồng nghĩa mọi dữ liệu, backup và bản sao tại nhà cung cấp đã bị xóa."
+          "Sau khi tiếp nhận yêu cầu đủ điều kiện trong ứng dụng, BBook hiển thị mã tham chiếu tài khoản. Hãy lưu mã này và gửi kèm email khi hỏi bộ phận hỗ trợ về tiến độ hoặc kết quả.",
+          "Thông báo tiếp nhận không có nghĩa mọi tệp đã được xóa ngay tại cùng thời điểm. Hệ thống tiếp tục xử lý và kiểm tra việc xóa ảnh; nếu gặp lỗi kỹ thuật, việc xử lý được thử lại. Một số ảnh từ phiên bản cũ hoặc ảnh còn được sử dụng ở nơi khác có thể cần được kiểm tra thêm để xác định phạm vi cần xóa.",
+          "Thời gian thực tế phụ thuộc vào việc xác minh yêu cầu, giải quyết giao dịch hoặc khiếu nại còn tồn đọng và xử lý những tệp cần kiểm tra thêm. Hãy liên hệ bbooksupport@gmail.com để hỏi về tình trạng yêu cầu."
+        ]
+      },
+      {
+        "title": "6. Liên hệ",
+        "paragraphs": [
+          "B-Book tiếp nhận câu hỏi và yêu cầu xóa tài khoản tại bbooksupport@gmail.com. Website: bbookmakeup.com. Xem thêm Chính sách quyền riêng tư để biết cách BBook xử lý dữ liệu cá nhân."
         ]
       }
     ]
