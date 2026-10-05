@@ -1,4 +1,4 @@
-CHÍNH SÁCH QUYỀN RIÊNG TƯ BBOOK
+# Chính sách quyền riêng tư BBook
 
 Bản sửa đổi: 05/10/2026 · Dành cho người từ đủ 18 tuổi
 
@@ -190,10 +190,8 @@ Ngày sửa đổi ở đầu trang cho biết thời điểm phiên bản chín
 
 Nếu bạn có câu hỏi về Chính sách quyền riêng tư, dữ liệu cá nhân hoặc việc xóa tài khoản, vui lòng liên hệ:
 
-B-Book
-
-Website: bbookmakeup.com
-
+B-Book  
+Website: bbookmakeup.com  
 Email: bbooksupport@gmail.com
 
 Vui lòng không gửi mật khẩu, mã OTP, thông tin thẻ thanh toán hoặc ảnh giấy tờ tùy thân qua email hỗ trợ.

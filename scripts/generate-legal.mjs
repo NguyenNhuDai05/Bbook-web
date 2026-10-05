@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { access, mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const root = path.resolve(import.meta.dirname, '..');
@@ -6,7 +6,8 @@ const content = JSON.parse(await readFile(path.join(root, 'legal/content.json'),
 const escape = value => value.replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
 for (const [key, file] of [['privacy', 'privacy.html'], ['deletion', 'delete-account.html']]) {
   const document = content[key];
-  const body = document.sections.map(section => `<section><h2>${escape(section.title)}</h2>${section.paragraphs.map(p => `<p>${escape(p)}</p>`).join('\n')}</section>`).join('\n');
+  const paragraphs = items => items.map(p => `<p>${escape(p)}</p>`).join('\n');
+  const body = document.sections.map(section => `<section><h2>${escape(section.title)}</h2>${paragraphs(section.paragraphs)}${(section.subsections || []).map(subsection => `<h3>${escape(subsection.title)}</h3>${paragraphs(subsection.paragraphs)}`).join('\n')}</section>`).join('\n');
   const subject = encodeURIComponent('Yêu cầu xóa tài khoản BBook');
   const html = `<!doctype html>
 <html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escape(document.title)} | B-Book</title><meta name="description" content="${escape(document.title)}. Liên hệ ${escape(content.email)}."><link rel="stylesheet" href="/legal.css"></head>
@@ -21,6 +22,14 @@ ${body}
   await mkdir(directory, { recursive: true });
   await writeFile(path.join(directory, 'index.html'), html);
 }
-const privacyText = [content.privacy.title.toUpperCase(), `Nhà phát triển: ${content.developer}. Bản sửa đổi: ${content.revision}.`, ...content.privacy.sections.flatMap(s => ['', s.title, ...s.paragraphs])].join('\n\n') + '\n';
+const privacyText = [content.privacy.title.toUpperCase(), `Bản sửa đổi: ${content.revision} · Dành cho người từ đủ 18 tuổi`, ...content.privacy.sections.flatMap(s => [`## ${s.title}`, ...s.paragraphs, ...(s.subsections || []).flatMap(sub => [`### ${sub.title}`, ...sub.paragraphs])])].join('\n\n') + '\n';
 await writeFile(path.join(root, 'legal/privacy.txt'), privacyText);
-console.log('Generated privacy.html, delete-account.html and legal/privacy.txt.');
+const appDocs = path.resolve(root, '../bbeauty-app/docs');
+let appAvailable = true;
+try { await access(path.join(appDocs, 'terms.txt')); }
+catch (error) { if (error.code !== 'ENOENT') throw error; appAvailable = false; }
+if (appAvailable) {
+  const terms = (await readFile(path.join(appDocs, 'terms.txt'), 'utf8')).trim();
+  await writeFile(path.join(appDocs, 'chinhsach.txt'), `${terms}\n\n${privacyText}`);
+}
+console.log(`Generated web legal pages${appAvailable ? ' and synchronized app policy' : ''}.`);
