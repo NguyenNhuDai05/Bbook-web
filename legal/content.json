@@ -48,7 +48,7 @@
             "title": "Vị trí",
             "paragraphs": [
               "BBook chỉ truy cập vị trí thiết bị khi bạn chủ động sử dụng chức năng cần vị trí và cấp quyền cho ứng dụng.",
-              "Vị trí có thể được sử dụng để tìm MUA ở gần, thêm vị trí studio hoặc nơi làm việc của MUA, hoặc chọn địa điểm thực hiện booking. Bạn có thể chọn khu vực hoặc nhập địa chỉ thủ công thay vì cung cấp vị trí thiết bị. BBook không tự chuyển vị trí GPS thành địa chỉ; bạn cần nhập và kiểm tra địa chỉ trước khi lưu.",
+              "Vị trí có thể được sử dụng để tìm MUA ở gần, thêm vị trí studio hoặc nơi làm việc của MUA, hoặc chọn địa điểm thực hiện booking. Bạn có thể chọn khu vực hoặc nhập địa chỉ thủ công thay vì cung cấp vị trí thiết bị. Khi bạn chủ động chọn GPS, BBook có thể dùng dịch vụ chuyển tọa độ thành địa chỉ của hệ điều hành thông qua Expo Location để gợi ý địa chỉ. Dịch vụ này có thể cần Internet và gửi tọa độ đến bên cung cấp dịch vụ vị trí của thiết bị. Bạn kiểm tra và xác nhận trước khi lưu; có thể nhập địa chỉ thủ công nếu không muốn dùng GPS hoặc không tìm được địa chỉ.",
               "Địa chỉ hoặc tọa độ liên quan đến hồ sơ MUA và booking có thể được lưu khi cần thiết để cung cấp chức năng tương ứng.",
               "MUA có thể thêm, sửa hoặc xóa studio hay nơi làm việc; thông tin này không bắt buộc. Tên, địa chỉ và vị trí chi tiết chỉ được công khai khi MUA bật cho phép khách đến nơi làm việc và đã cung cấp địa chỉ. Nếu không bật, thông tin chi tiết không xuất hiện trên hồ sơ công khai; tìm MUA gần bạn có thể sử dụng vị trí đã xác nhận để tính khoảng cách gần đúng. BBook không theo dõi vị trí thiết bị trong nền.",
               "Khi đặt lịch, khách hàng có thể chọn địa chỉ để MUA đến hoặc nơi làm việc mà MUA đã cho phép khách đến. Địa điểm được lưu cùng booking để khách hàng và MUA thực hiện lịch hẹn. Sửa hoặc xóa nơi làm việc sau đó không thay đổi địa điểm đã lưu trong booking trước đó.",
@@ -162,7 +162,7 @@
         "title": "8. Quyền của người dùng",
         "paragraphs": [
           "Bạn có thể chỉnh sửa những thông tin được BBook hỗ trợ trong hồ sơ của mình và quản lý quyền camera, ảnh, vị trí hoặc thông báo thông qua cài đặt của thiết bị.",
-          "MUA có thể xóa riêng nơi làm việc mà vẫn giữ tài khoản: mở phần chỉnh sửa hồ sơ, chọn Xóa nơi làm việc và lưu thay đổi. Tên, địa chỉ và GPS của nơi làm việc được xóa khỏi hồ sơ; khu vực nhận khách và địa điểm của booking đã tạo trước đó vẫn được giữ để thực hiện lịch hẹn.",
+          "MUA có thể xóa riêng nơi làm việc mà vẫn giữ tài khoản: mở phần chỉnh sửa hồ sơ, chọn Xóa vị trí hoạt động và lưu thay đổi. Tên, địa chỉ và GPS của nơi làm việc được xóa khỏi hồ sơ; khu vực nhận khách và địa điểm của booking đã tạo trước đó vẫn được giữ để thực hiện lịch hẹn.",
           "Bạn cũng có thể liên hệ BBook để hỏi về dữ liệu cá nhân, yêu cầu chỉnh sửa thông tin không thể tự chỉnh sửa hoặc yêu cầu xóa tài khoản và dữ liệu liên quan.",
           "Khi không thể thực hiện trực tiếp trong ứng dụng, hãy liên hệ bbooksupport@gmail.com."
         ]
@@ -241,7 +241,7 @@
       {
         "title": "6. Xóa nơi làm việc mà không xóa tài khoản",
         "paragraphs": [
-          "Đối với MUA, mở Profile → Chỉnh sửa trang → Nơi làm việc, nhấn Xóa nơi làm việc rồi lưu thay đổi. Bạn cũng có thể chọn Bỏ vị trí GPS và lưu thay đổi nếu chỉ muốn xóa tọa độ.",
+          "Đối với MUA, mở Profile → Chỉnh sửa trang → Vị trí hoạt động, nhấn Xóa vị trí hoạt động rồi lưu thay đổi. Bạn cũng có thể chọn Bỏ vị trí GPS và lưu thay đổi nếu chỉ muốn xóa tọa độ.",
           "Sau khi lưu thành công, tên, địa chỉ và GPS của nơi làm việc được xóa khỏi hồ sơ. Tài khoản và khu vực nhận khách vẫn được giữ. Địa điểm đã lưu trong booking trước đó không bị thay đổi theo thao tác này; dữ liệu booking và giao dịch được xử lý theo phạm vi và thời gian lưu giữ nêu bên trên.",
           "BBook không cam kết toàn bộ dữ liệu người dùng tự động bị xóa trong vòng 90 ngày. Thao tác này chỉ áp dụng cho dữ liệu nơi làm việc mà bạn chọn xóa."
         ]
