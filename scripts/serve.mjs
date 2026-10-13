@@ -2,7 +2,12 @@ import http from 'node:http';
 import { stat } from 'node:fs/promises';
 import { createReadStream } from 'node:fs';
 import path from 'node:path';
+import { writeAnalyticsConfig } from './analytics-config.mjs';
+import { loadEnvFile } from 'node:process';
 const root = path.resolve(import.meta.dirname, '..');
+// Node 22+: keep shell/Render values authoritative; local values stay out of Git.
+try { loadEnvFile(path.join(root, '.env.local')); } catch (error) { if (error.code !== 'ENOENT') throw error; }
+await writeAnalyticsConfig(root);
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.apk': 'application/vnd.android.package-archive' };
 const server = http.createServer(async (req, res) => {
   try {
@@ -12,7 +17,7 @@ const server = http.createServer(async (req, res) => {
     const file = path.resolve(root, '.' + (pathname === '/' ? '/index.html' : routes[pathname] || pathname));
     const relative = path.relative(root, file);
     const isAsset = relative.startsWith('assets' + path.sep) && Object.hasOwn(types, path.extname(file));
-    if (relative.startsWith('..') || path.isAbsolute(relative) || (!['index.html', 'styles.css', 'app.js', 'favicon.svg', 'privacy.html', 'delete-account.html', 'legal.css'].includes(relative) && !isAsset)) { res.writeHead(404); res.end('Not found'); return; }
+    if (relative.startsWith('..') || path.isAbsolute(relative) || (!['index.html', 'styles.css', 'app.js', 'analytics.js', 'analytics-config.js', 'favicon.svg', 'privacy.html', 'delete-account.html', 'legal.css'].includes(relative) && !isAsset)) { res.writeHead(404); res.end('Not found'); return; }
     const info = await stat(file);
     if (!info.isFile()) { res.writeHead(404); res.end('Not found'); return; }
     const headers = { 'Content-Type': types[path.extname(file)], 'Content-Length': info.size, 'Cache-Control': 'no-cache' };

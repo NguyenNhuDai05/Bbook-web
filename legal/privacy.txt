@@ -217,3 +217,8 @@ Website: bbookmakeup.com
 Email: bbooksupport@gmail.com
 
 Vui lòng không gửi mật khẩu, mã OTP, thông tin thẻ thanh toán hoặc ảnh giấy tờ tùy thân qua email hỗ trợ.
+
+
+## Thống kê truy cập website và cookie
+
+Website bbookmakeup.com sử dụng Google Analytics 4 khi bạn đồng ý trong bảng tùy chọn thống kê. Google nhận dữ liệu sử dụng trang, nguồn truy cập, thông tin thiết bị và lượt nhấn tải APK hoặc Google Play để BBook đánh giá hiệu quả website. Cookie analytics không được bật trước khi đồng ý; bạn có thể từ chối hoặc rút lại bằng nút “Tùy chọn thống kê / cookie” ở cuối trang. Việc từ chối không ảnh hưởng đến tải ứng dụng. BBook không chủ động gửi tên, email, số điện thoại hay thông tin tài khoản vào Analytics. Số lần nhấn tải không xác nhận tải hoàn tất hoặc cài đặt ứng dụng. Dữ liệu được Google xử lý theo chính sách quyền riêng tư của Google; thời hạn lưu dữ liệu sự kiện được quản lý trong cấu hình property GA4 của BBook.

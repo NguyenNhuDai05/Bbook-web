@@ -1,6 +1,6 @@
 # BBook Landing Page
 
-Website giới thiệu ứng dụng BBook, tách riêng khỏi app và backend. HTML, CSS và JavaScript thuần; không cần cài thư viện. Node.js 20.11+.
+Website giới thiệu ứng dụng BBook, tách riêng khỏi app và backend. HTML, CSS và JavaScript thuần; không có Next.js/App Router và không cần cài thư viện. Node.js 22.16+.
 
 ## Chạy trong VS Code
 
@@ -33,7 +33,7 @@ trước khi thay URL trong Google Play Console. Việc sửa local không cập
 - `app.js`: menu mobile và URL tải app. Điền link chính thức vào `appLinks`; nút store tự chuyển sang trạng thái tải. Khi phát hành, cập nhật FAQ về ngày tải ứng dụng trong HTML.
 - `favicon.svg`: biểu tượng website.
 
-Mockup app là minh họa bằng HTML/CSS, không phải screenshot thật. Không sử dụng đánh giá, số lượng người dùng hay số liệu giả. Chưa tích hợp analytics, form, link store hay nội dung pháp lý do chưa có dữ liệu chính thức. Trước khi phát hành công khai, bổ sung chính sách quyền riêng tư/điều khoản đã được duyệt và thông tin liên hệ.
+Mockup app là minh họa bằng HTML/CSS, không phải screenshot thật. Không sử dụng đánh giá, số lượng người dùng hay số liệu giả. Google Analytics 4 được bật qua cấu hình môi trường và đồng ý cookie; xem [hướng dẫn GA4](GA4_SETUP.md). Link Google Play và App Store hiện chưa được cấu hình trong `appLinks`.
 
 ## Bản trải nghiệm Android
 

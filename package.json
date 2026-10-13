@@ -3,5 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "description": "BBook — landing page giới thiệu ứng dụng",
-  "scripts": { "dev": "node scripts/serve.mjs", "start": "node scripts/serve.mjs", "package:apk": "node scripts/package-apk.mjs", "build": "node scripts/build.mjs" }
+  "scripts": { "dev": "node scripts/serve.mjs", "start": "node scripts/serve.mjs", "package:apk": "node scripts/package-apk.mjs", "build": "node scripts/build.mjs", "test": "node --test scripts/analytics.test.mjs", "check": "node --check app.js && node --check analytics.js && node --check scripts/analytics-config.mjs && node --check scripts/serve.mjs && node --check scripts/build.mjs" },
+  "engines": { "node": ">=22.16.0" }
 }
