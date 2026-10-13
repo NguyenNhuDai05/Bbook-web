@@ -1,0 +1,17 @@
+[
+  {
+    "source": "/fb",
+    "destination": "/?utm_source=facebook&utm_medium=social&utm_campaign=bbook_launch",
+    "type": "redirect"
+  },
+  {
+    "source": "/tt",
+    "destination": "/?utm_source=tiktok&utm_medium=social&utm_campaign=bbook_launch",
+    "type": "redirect"
+  },
+  {
+    "source": "/threads",
+    "destination": "/?utm_source=threads&utm_medium=social&utm_campaign=bbook_launch",
+    "type": "redirect"
+  }
+]

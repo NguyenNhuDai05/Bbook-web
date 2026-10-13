@@ -4,6 +4,7 @@ import { createReadStream } from 'node:fs';
 import path from 'node:path';
 import { writeAnalyticsConfig } from './analytics-config.mjs';
 import { loadEnvFile } from 'node:process';
+import { socialRedirect } from './social-links.mjs';
 const root = path.resolve(import.meta.dirname, '..');
 // Node 22+: keep shell/Render values authoritative; local values stay out of Git.
 try { loadEnvFile(path.join(root, '.env.local')); } catch (error) { if (error.code !== 'ENOENT') throw error; }
@@ -12,6 +13,12 @@ const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 
 const server = http.createServer(async (req, res) => {
   try {
     const url = new URL(req.url, 'http://localhost');
+    const destination = socialRedirect(url.pathname);
+    if (destination && ['GET', 'HEAD'].includes(req.method)) {
+      res.writeHead(301, { Location: destination, 'Cache-Control': 'no-cache' });
+      res.end();
+      return;
+    }
     const routes = { '/privacy': '/privacy.html', '/privacy/': '/privacy.html', '/delete-account': '/delete-account.html', '/delete-account/': '/delete-account.html' };
     const pathname = decodeURIComponent(url.pathname);
     const file = path.resolve(root, '.' + (pathname === '/' ? '/index.html' : routes[pathname] || pathname));

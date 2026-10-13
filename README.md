@@ -1,5 +1,7 @@
 # BBook Landing Page
 
+Link ngắn social `/fb`, `/tt`, `/threads`: xem [hướng dẫn cấu hình Render và kiểm thử](SOCIAL_SHORT_LINKS.md). Cần nhập ba HTTP redirect rules trên Render Dashboard; deploy source không tự áp dụng rule hosting.
+
 Website giới thiệu ứng dụng BBook, tách riêng khỏi app và backend. HTML, CSS và JavaScript thuần; không có Next.js/App Router và không cần cài thư viện. Node.js 22.16+.
 
 ## Chạy trong VS Code
