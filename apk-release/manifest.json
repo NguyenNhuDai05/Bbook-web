@@ -1,9 +1,12 @@
 {
-  "size": 119279946,
-  "sha256": "81808b31d73666608a2c1521d1d557d0e666f9d4dd09c7f9ae970f0d832cef8a",
+  "size": 222683699,
+  "sha256": "ddc45a1b3d1c00f941cb2a552a1d0df80a32b3a46d030e48d87585b104d6b600",
   "parts": [
     "android-1.part",
     "android-2.part",
-    "android-3.part"
+    "android-3.part",
+    "android-4.part",
+    "android-5.part",
+    "android-6.part"
   ]
 }

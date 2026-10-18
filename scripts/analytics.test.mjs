@@ -10,7 +10,7 @@ const source = await readFile(
   new URL("../analytics.js", import.meta.url),
   "utf8",
 );
-function run(id, consent) {
+function run(id, consent, counter) {
   const listeners = {};
   const scripts = [];
   const buttons = {};
@@ -45,6 +45,7 @@ function run(id, consent) {
   };
   const window = {
     BBOOK_GA_MEASUREMENT_ID: id,
+    BBOOK_RECORD_APK_CLICK: counter,
     addEventListener(name, handler) {
       listeners[name] = handler;
     },
@@ -168,7 +169,7 @@ test("config generator reads environment, permits absent ID, rejects script inje
     await writeAnalyticsConfig(directory);
     assert.equal(
       await readFile(path.join(directory, "analytics-config.js"), "utf8"),
-      'window.BBOOK_GA_MEASUREMENT_ID = "";\n',
+      'window.BBOOK_GA_MEASUREMENT_ID = "";\nwindow.BBOOK_APK_COUNTER_URL = "";\n',
     );
     process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID = "G-TEST123";
     await writeAnalyticsConfig(directory);
@@ -190,6 +191,8 @@ test("config generator reads environment, permits absent ID, rejects script inje
 });
 test("one APK event per click, disabled Play ignored; consent withdrawal and reaccept", () => {
   const result = run("G-TEST", "granted");
+  let ownClicks=0;
+  result.window.BBOOK_RECORD_APK_CLICK=()=>ownClicks++;
   const link = {
     matches(selector) {
       return selector === "[data-apk-download]";
@@ -211,12 +214,14 @@ test("one APK event per click, disabled Play ignored; consent withdrawal and rea
     isTrusted: true,
   };
   result.listeners.click(click);
+  assert.equal(ownClicks,1);
   assert.equal(
     result.window.dataLayer.filter((args) => args[0] === "event").length,
     1,
   );
   link.getAttribute = () => "true";
   result.listeners.click(click);
+  assert.equal(ownClicks,1);
   assert.equal(
     result.window.dataLayer.filter((args) => args[0] === "event").length,
     1,
@@ -224,6 +229,7 @@ test("one APK event per click, disabled Play ignored; consent withdrawal and rea
   result.buttons["[data-reject]"].onclick();
   link.getAttribute = () => null;
   result.listeners.click(click);
+  assert.equal(ownClicks,1);
   assert.equal(
     result.window.dataLayer.filter((args) => args[0] === "event").length,
     1,
@@ -239,4 +245,14 @@ test("one APK event per click, disabled Play ignored; consent withdrawal and rea
     1,
   );
   assert.equal(result.scripts.filter((e) => e.src).length, 1);
+});
+
+test("internal click capture uses consent independently of a Google Measurement ID",()=>{
+  let calls=0;
+  const result=run("", "granted",()=>calls++);
+  const link={matches:selector=>selector==="[data-apk-download]",getAttribute:()=>null,closest:()=>({id:"download"})};
+  const click={target:{closest:()=>link},defaultPrevented:false,isTrusted:true};
+  result.listeners.click(click);assert.equal(calls,1);assert.equal(result.window.gtag,undefined);
+  result.buttons["[data-reject]"].onclick();result.listeners.click(click);assert.equal(calls,1);
+  result.buttons["[data-accept]"].onclick();result.listeners.click(click);assert.equal(calls,2);
 });
