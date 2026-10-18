@@ -1,6 +1,7 @@
 (() => {
   const id = window.BBOOK_GA_MEASUREMENT_ID;
-  if (!/^G-[A-Z0-9]+$/.test(id || "")) return;
+  const gaEnabled = /^G-[A-Z0-9]+$/.test(id || "");
+  if (!gaEnabled && typeof window.BBOOK_RECORD_APK_CLICK !== "function") return;
   if (window.BBOOK_ANALYTICS_INITIALIZED) return;
   window.BBOOK_ANALYTICS_INITIALIZED = true;
   const key = "bbook_analytics_consent";
@@ -14,6 +15,7 @@
   function start() {
     if (started) return;
     started = true;
+    if (!gaEnabled) return;
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () {
       window.dataLayer.push(arguments);
@@ -81,7 +83,7 @@
     choice = "granted";
     save(choice);
     window[`ga-disable-${id}`] = false;
-    if (started)
+    if (started && window.gtag)
       window.gtag("consent", "update", { analytics_storage: "granted" });
     else start();
     panel.remove();
@@ -135,6 +137,7 @@
     if (link.matches("[data-apk-download]")) {
       name = "apk_download_click";
       destination = "apk";
+      try { window.BBOOK_RECORD_APK_CLICK?.(); } catch { /* Statistics never block the download or GA event. */ }
     } else if (
       link.matches('[data-store="android"]') &&
       /^https:\/\/play\.google\.com\//.test(link.href)
@@ -142,7 +145,7 @@
       name = "play_store_click";
       destination = "google_play";
     }
-    if (name)
+    if (name && window.gtag)
       window.gtag("event", name, {
         button_location: link.closest("section")?.id || "landing",
         destination_type: destination,

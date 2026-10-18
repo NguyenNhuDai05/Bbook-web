@@ -24,11 +24,11 @@ const server = http.createServer(async (req, res) => {
     const file = path.resolve(root, '.' + (pathname === '/' ? '/index.html' : routes[pathname] || pathname));
     const relative = path.relative(root, file);
     const isAsset = relative.startsWith('assets' + path.sep) && Object.hasOwn(types, path.extname(file));
-    if (relative.startsWith('..') || path.isAbsolute(relative) || (!['index.html', 'styles.css', 'app.js', 'analytics.js', 'analytics-config.js', 'favicon.svg', 'privacy.html', 'delete-account.html', 'legal.css'].includes(relative) && !isAsset)) { res.writeHead(404); res.end('Not found'); return; }
+    if (relative.startsWith('..') || path.isAbsolute(relative) || (!['index.html', 'styles.css', 'app.js', 'analytics.js', 'apk-counter.js', 'analytics-config.js', 'favicon.svg', 'privacy.html', 'delete-account.html', 'legal.css'].includes(relative) && !isAsset)) { res.writeHead(404); res.end('Not found'); return; }
     const info = await stat(file);
     if (!info.isFile()) { res.writeHead(404); res.end('Not found'); return; }
     const headers = { 'Content-Type': types[path.extname(file)], 'Content-Length': info.size, 'Cache-Control': 'no-cache' };
-    if (path.extname(file) === '.apk') headers['Content-Disposition'] = 'attachment; filename="bbook-android.apk"';
+    if (path.extname(file) === '.apk') headers['Content-Disposition'] = 'attachment; filename="BBook-test.apk"';
     res.writeHead(200, headers);
     if (req.method === 'HEAD') { res.end(); return; }
     const stream = createReadStream(file);
