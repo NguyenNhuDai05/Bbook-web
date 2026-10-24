@@ -71,7 +71,7 @@
   panel.className = "analytics-consent";
   panel.setAttribute("aria-label", "Quyền riêng tư analytics");
   panel.innerHTML =
-    '<strong>Thống kê truy cập website</strong><p>BBook sử dụng Google Analytics để đo lượt truy cập và lượt nhấn tải ứng dụng khi bạn đồng ý. Google nhận dữ liệu sử dụng và thiết bị. Lựa chọn không ảnh hưởng đến tải APK. <a href="/privacy/">Chính sách quyền riêng tư</a></p><button type="button" data-accept>Đồng ý</button><button type="button" data-reject>Từ chối</button>';
+    '<strong>Thống kê truy cập website</strong><p>BBook sử dụng Google Analytics để đo lượt truy cập và lượt nhấn tải ứng dụng khi bạn đồng ý. Google nhận dữ liệu sử dụng và thiết bị. Lựa chọn không ảnh hưởng đến tải ứng dụng. <a href="/privacy/">Chính sách quyền riêng tư</a></p><button type="button" data-accept>Đồng ý</button><button type="button" data-reject>Từ chối</button>';
   function save(value) {
     try {
       localStorage.setItem(key, value);

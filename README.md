@@ -32,14 +32,17 @@ trước khi thay URL trong Google Play Console. Việc sửa local không cập
 
 - `index.html`: nội dung và bố cục các section.
 - `styles.css`: màu thương hiệu, typography và responsive.
-- `app.js`: menu mobile và URL tải app. Điền link chính thức vào `appLinks`; nút store tự chuyển sang trạng thái tải. Khi phát hành, cập nhật FAQ về ngày tải ứng dụng trong HTML.
+- `app.js`: menu mobile, xem ảnh và hiệu ứng xuất hiện nội dung.
+- Các nút “Tải app” và Google Play nằm trong `index.html`, trỏ trực tiếp tới `https://play.google.com/store/apps/details?id=com.bbook.app` và hoạt động cả khi tắt JavaScript. Khi đổi URL cửa hàng, cập nhật tất cả liên kết `data-store="android"`.
 - `favicon.svg`: biểu tượng website.
 
-Mockup app là minh họa bằng HTML/CSS, không phải screenshot thật. Không sử dụng đánh giá, số lượng người dùng hay số liệu giả. Google Analytics 4 được bật qua cấu hình môi trường và đồng ý cookie; xem [hướng dẫn GA4](GA4_SETUP.md). Link Google Play và App Store hiện chưa được cấu hình trong `appLinks`.
+Mockup app là minh họa bằng HTML/CSS, không phải screenshot thật. Không sử dụng đánh giá, số lượng người dùng hay số liệu giả. Google Analytics 4 được bật qua cấu hình môi trường và đồng ý cookie; xem [hướng dẫn GA4](GA4_SETUP.md). Các nút tải hiện mở Google Play và phát event `play_store_click` khi người dùng đã đồng ý thống kê. Phiên bản iOS chưa được phát hành.
 
-## Bản trải nghiệm Android
+## Phát hành Android trên Google Play
 
-APK được lưu tại `assets/downloads/bbook-android.apk` và tải trực tiếp bằng nút trong `index.html`, kể cả khi JavaScript bị tắt. Thay file này để cập nhật bản thử nghiệm; đồng thời cập nhật dung lượng hiển thị. `npm run build` sao chép cả APK sang `dist/assets/downloads/`. Khi đưa website lên hosting static, cần tải lên toàn bộ `dist/` và chọn dịch vụ hỗ trợ file 114 MB. Người dùng không cần tài khoản Expo. Link cửa hàng được cấu hình riêng trong `appLinks`.
+Landing page dùng Google Play để người dùng cài đặt và cập nhật BBook. Các nút tải APK, dung lượng file và hướng dẫn cài từ nguồn ngoài đã được thay bằng nút “Tải app” và hướng dẫn cài qua CH Play. Bộ đếm APK cũ không ghi nhận các lượt nhấn Google Play.
+
+Các file APK và quy trình đóng gói cũ bên dưới vẫn được giữ trong repository; build hiện vẫn sao chép APK sang `dist/`, nhưng landing page không còn liên kết tải file này.
 
 ### Deploy APK từ Git
 
