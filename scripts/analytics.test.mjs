@@ -5,7 +5,7 @@ import { readFile } from "node:fs/promises";
 import { mkdtemp, rm } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
-import { writeAnalyticsConfig } from "./analytics-config.mjs";
+import { writeAnalyticsConfig, defaultApkCounterUrl } from "./analytics-config.mjs";
 const source = await readFile(
   new URL("../analytics.js", import.meta.url),
   "utf8",
@@ -163,13 +163,15 @@ test("storage withdrawal disables other tab; reaccept never inserts duplicate ta
 });
 test("config generator reads environment, permits absent ID, rejects script injection", async () => {
   const original = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const originalCounter = process.env.APK_COUNTER_API_URL;
   const directory = await mkdtemp(path.join(tmpdir(), "bbook-ga-test-"));
   try {
     delete process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+    delete process.env.APK_COUNTER_API_URL;
     await writeAnalyticsConfig(directory);
     assert.equal(
       await readFile(path.join(directory, "analytics-config.js"), "utf8"),
-      'window.BBOOK_GA_MEASUREMENT_ID = "";\nwindow.BBOOK_APK_COUNTER_URL = "";\n',
+      `window.BBOOK_GA_MEASUREMENT_ID = "";\nwindow.BBOOK_APK_COUNTER_URL = ${JSON.stringify(defaultApkCounterUrl)};\n`,
     );
     process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID = "G-TEST123";
     await writeAnalyticsConfig(directory);
@@ -181,6 +183,8 @@ test("config generator reads environment, permits absent ID, rejects script inje
     process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID = "G-</script>";
     await assert.rejects(writeAnalyticsConfig(directory));
   } finally {
+    if (originalCounter === undefined) delete process.env.APK_COUNTER_API_URL;
+    else process.env.APK_COUNTER_API_URL = originalCounter;
     if (original === undefined)
       delete process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
     else process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID = original;

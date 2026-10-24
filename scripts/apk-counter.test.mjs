@@ -2,6 +2,10 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import vm from "node:vm";
 import {readFile} from "node:fs/promises";
+import {mkdtemp,rm} from "node:fs/promises";
+import {tmpdir} from "node:os";
+import path from "node:path";
+import {writeAnalyticsConfig,defaultApkCounterUrl} from "./analytics-config.mjs";
 const source=await readFile(new URL("../apk-counter.js",import.meta.url),"utf8");
 function setup(consent="granted",responses=[204]) {
   const calls=[],retries=[];let ids=0;
@@ -25,4 +29,18 @@ test("retry retains the same ID and withdrawal cancels pending delivery",async()
 });
 test("denied consent never sends first-party analytics",async()=>{
   const test=setup("denied");test.window.BBOOK_RECORD_APK_CLICK();await flush();assert.equal(test.calls.length,0);
+});
+test("missing/blank Render variable uses current backend, explicit override works and unsafe URLs fail",async()=>{
+  const saved=process.env.APK_COUNTER_API_URL;
+  const directory=await mkdtemp(path.join(tmpdir(),"bbook-counter-config-"));
+  const output=async()=>{await writeAnalyticsConfig(directory);return readFile(path.join(directory,"analytics-config.js"),"utf8");};
+  try {
+    delete process.env.APK_COUNTER_API_URL;assert.ok((await output()).includes(JSON.stringify(defaultApkCounterUrl)));
+    process.env.APK_COUNTER_API_URL="  ";assert.ok((await output()).includes(JSON.stringify(defaultApkCounterUrl)));
+    process.env.APK_COUNTER_API_URL=" https://other.test/api/WebsiteMetrics/apk-click ";assert.ok((await output()).includes('"https://other.test/api/WebsiteMetrics/apk-click"'));
+    for(const url of ["http://other.test/api/WebsiteMetrics/apk-click","https://other.test/wrong","https://user:password@other.test/api/WebsiteMetrics/apk-click","https://other.test/api/WebsiteMetrics/apk-click?token=secret"]){process.env.APK_COUNTER_API_URL=url;await assert.rejects(output);}
+  } finally {
+    if(saved===undefined)delete process.env.APK_COUNTER_API_URL;else process.env.APK_COUNTER_API_URL=saved;
+    assert.ok(directory.startsWith(path.join(tmpdir(),"bbook-counter-config-")));await rm(directory,{recursive:true});
+  }
 });

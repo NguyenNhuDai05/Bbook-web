@@ -5,8 +5,12 @@ Deploy theo thứ tự backend → admin → website. Backend cần migration `2
 Website thêm biến public trước build/start:
 
 ```text
-APK_COUNTER_API_URL=https://beautybook-13zj.onrender.com/api/WebsiteMetrics/apk-click
+APK_COUNTER_API_URL=https://beautybook-v3bi.onrender.com/api/WebsiteMetrics/apk-click
 ```
+
+Nếu biến này thiếu hoặc trống, source hiện dùng mặc định chính URL backend mới ở
+trên. Giá trị không trống vẫn được ưu tiên và kiểm tra định dạng. Sau khi đổi biến
+trên Render Static Site phải rebuild website để cập nhật analytics-config.js.
 
 Giữ Measurement ID GA4 đang có để GA4 tiếp tục hoạt động song song. Bộ đếm nội bộ không phụ thuộc Measurement ID hoặc service account Google nhưng vẫn dùng consent UI hiện có. Không đưa secret/key/token vào biến public này. `apk-counter.js` phải trả HTTP 200 sau deploy. Node server và bản dist đều đã bao gồm script mới. Không sửa APK, link tải hoặc hash release.
 
