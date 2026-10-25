@@ -3,5 +3,10 @@
     "source": "/mua/:muaId",
     "destination": "https://beautybook-v3bi.onrender.com/mua/:muaId",
     "type": "redirect"
+  },
+  {
+    "source": "/posts/:postId",
+    "destination": "https://beautybook-v3bi.onrender.com/posts/:postId",
+    "type": "redirect"
   }
 ]
