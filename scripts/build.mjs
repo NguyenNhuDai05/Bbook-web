@@ -17,4 +17,6 @@ await writeAnalyticsConfig(path.join(root, 'dist'));
 for (const file of ['index.html', 'styles.css', 'app.js', 'analytics.js', 'apk-counter.js', 'favicon.svg', 'privacy.html', 'delete-account.html', 'legal.css']) await copyFile(path.join(root, file), path.join(root, 'dist', file));
 await cp(path.join(root, 'assets'), path.join(root, 'dist', 'assets'), { recursive: true });
 for (const directory of ['privacy', 'delete-account']) await cp(path.join(root, directory), path.join(root, 'dist', directory), { recursive: true });
+await mkdir(path.join(root, 'dist', '.well-known'), { recursive: true });
+await copyFile(path.join(root, '.well-known', 'assetlinks.json'), path.join(root, 'dist', '.well-known', 'assetlinks.json'));
 console.log('Build hoàn tất: dist/');
