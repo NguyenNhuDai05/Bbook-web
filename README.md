@@ -2,7 +2,7 @@
 
 Link ngắn social `/fb`, `/tt`, `/threads`: xem [hướng dẫn cấu hình Render và kiểm thử](SOCIAL_SHORT_LINKS.md). Cần nhập ba HTTP redirect rules trên Render Dashboard; deploy source không tự áp dụng rule hosting.
 
-Chia sẻ hồ sơ `https://bbookmakeup.com/mua/{id}` và xác minh Android: xem [hướng dẫn rollout hồ sơ](PROFILE_SHARING.md). Source đã chuẩn bị association; cần deploy website và thêm đúng một rule hosting trước khi phát hành link.
+Chia sẻ hồ sơ `https://bbookmakeup.com/mua/{id}`, bài viết `/posts/{id}` và xác minh Android: xem [hướng dẫn rollout chia sẻ](PROFILE_SHARING.md). Source đã chuẩn bị association; cần deploy website và thêm hai rule hosting trước khi phát hành link.
 
 Website giới thiệu ứng dụng BBook, tách riêng khỏi app và backend. HTML, CSS và JavaScript thuần; không có Next.js/App Router và không cần cài thư viện. Node.js 22.16+.
 
