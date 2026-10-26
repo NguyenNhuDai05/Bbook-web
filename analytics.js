@@ -65,7 +65,7 @@
   }
   const style = document.createElement("style");
   style.textContent =
-    ".analytics-consent{position:fixed;bottom:16px;left:16px;right:16px;z-index:1000;max-width:620px;padding:20px;background:white;color:#1f2937;border:1px solid #e5e7eb;border-radius:14px;box-shadow:0 4px 24px #0002;font:14px/1.6 sans-serif}.analytics-consent button,.analytics-settings{padding:8px 12px;margin:8px 8px 0 0;border:1px solid #e5e7eb;border-radius:8px;background:#fff0f5;color:#9c2453;cursor:pointer}.analytics-settings{display:block;margin:12px auto;font:12px sans-serif}";
+    ".analytics-consent{position:relative;width:calc(100% - 40px);max-width:900px;margin:20px auto;padding:22px;background:#fff;color:#30232b;border:1px solid #efd7e0;border-radius:14px;font:13px/1.8 sans-serif}.analytics-consent p{margin:8px 0}.analytics-consent a{color:#a91852;text-decoration:underline}.analytics-consent button,.analytics-settings{min-height:44px;padding:9px 16px;margin:8px 8px 0 0;border:1px solid #efd7e0;border-radius:8px;background:#fff0f5;color:#9c2453;cursor:pointer}.analytics-consent button:focus-visible,.analytics-settings:focus-visible{outline:3px solid #c82264;outline-offset:3px}.analytics-settings{display:block;margin:20px auto 0;font:12px sans-serif}";
   document.head.append(style);
   const panel = document.createElement("section");
   panel.className = "analytics-consent";

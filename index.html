@@ -1,561 +1,455 @@
 <!doctype html>
 <html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BBook — Một cuộc hẹn. Một phiên bản rạng rỡ.</title>
-  <meta name="description" content="Khám phá Makeup Artist chuyên nghiệp, tìm phong cách hợp gu và chủ động gửi yêu cầu đặt lịch làm đẹp cùng BBook. Tải app BBook trên Google Play (CH Play).">
-  <meta name="theme-color" content="#fcf9f6">
-  <link rel="icon" href="assets/images/bbook-logo.png" type="image/png">
-  <link rel="stylesheet" href="styles.css">
-  <script src="app.js" defer></script>
-  <script src="analytics-config.js" defer></script>
-  <script src="apk-counter.js" defer></script>
-  <script src="analytics.js" defer></script>
-</head>
-<body>
-  <a class="skip-link" href="#main">Đến nội dung chính</a>
-
-  <!-- ======================================================================
-       HEADER & NAVIGATION
-       ====================================================================== -->
-  <header class="header">
-    <div class="container nav">
-      <a class="brand" href="#main" aria-label="BBook — Trang chủ">
-        <span class="brand-badge">
-          <img class="brand-badge-img" src="assets/images/bbook-logo.png" alt="BBook Logo" width="1500" height="1500">
-        </span>
-        <div class="brand-text-wrap">
-          <span class="brand-tagline">Beauty Marketplace</span>
-        </div>
-      </a>
-
-      <nav id="navigation" aria-label="Điều hướng chính">
-        <a href="#showcase">Trải nghiệm</a>
-        <a href="#how-it-works">Quy trình</a>
-        <a href="#release">Phát hành</a>
-        <a href="#artists">Dành cho Artist</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-
-      <div class="nav-actions">
-        <a class="button small nav-cta" data-store="android" href="https://play.google.com/store/apps/details?id=com.bbook.app" target="_blank" rel="noopener noreferrer" aria-label="Tải app BBook trên Google Play">Tải app <span aria-hidden="true">↗</span></a>
-        <button class="menu-toggle" aria-expanded="false" aria-controls="navigation" aria-label="Mở menu">
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main id="main">
-    <!-- ======================================================================
-         HERO SECTION: EDITORIAL BEAUTY + REAL PRODUCT STAGE
-         ====================================================================== -->
-    <section class="hero container">
-      <div class="hero-copy" data-reveal>
-        <a href="#release" class="status-pill">
-          <span class="live-dot" aria-hidden="true"></span>
-          <span>Đã có trên Google Play · Tải BBook ngay <span aria-hidden="true">↗</span></span>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BBook — Đẹp hơn mỗi ngày cùng BBook</title>
+    <meta name="description" content="Tìm phong cách makeup phù hợp, khám phá portfolio của Makeup Artist và chủ động gửi yêu cầu đặt lịch cùng BBook. Tải ứng dụng trên Google Play.">
+    <meta name="theme-color" content="#fff8f8">
+    <meta property="og:title" content="Đẹp hơn mỗi ngày cùng BBook">
+    <meta property="og:description" content="Khám phá Makeup Artist, xem tác phẩm và đặt lịch làm đẹp trong ứng dụng BBook.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bbookmakeup.com/">
+    <meta property="og:image" content="https://bbookmakeup.com/assets/images/campaign-social-v1.jpg">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="375">
+    <meta property="og:image:alt" content="Beauty campaign hồng pastel của BBook">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://bbookmakeup.com/">
+    <link rel="icon" href="assets/images/bbook-icon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer>
+    </script>
+    <script src="analytics-config.js" defer>
+    </script>
+    <script src="apk-counter.js" defer>
+    </script>
+    <script src="analytics.js" defer>
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Đến nội dung chính</a>
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path d="M4 12h15m-6-6 6 6-6 6"/>
+      </symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24">
+        <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>
+      </symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="16" rx="3"/>
+        <path d="M7 3v4m10-4v4M3 11h18m-14 4h2m4 0h2m-8 3h2"/>
+      </symbol>
+      <symbol id="i-people" viewBox="0 0 24 24">
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M2 21v-3a7 7 0 0 1 14 0v3m0-18a4 4 0 0 1 0 8m3 3a6 6 0 0 1 3 5v2"/>
+      </symbol>
+      <symbol id="i-picture" viewBox="0 0 24 24">
+        <rect x="3" y="3" width="18" height="18" rx="3"/>
+        <circle cx="8" cy="8" r="1.5"/>
+        <path d="m3 17 5-5 4 4 4-6 5 7"/>
+      </symbol>
+      <symbol id="i-search" viewBox="0 0 24 24">
+        <circle cx="10.5" cy="10.5" r="7.5"/>
+        <path d="m16 16 5 5"/>
+      </symbol>
+      <symbol id="i-share" viewBox="0 0 24 24">
+        <circle cx="18" cy="5" r="3"/>
+        <circle cx="6" cy="12" r="3"/>
+        <circle cx="18" cy="19" r="3"/>
+        <path d="m8.6 10.5 6.8-4m-6.8 7 6.8 4"/>
+      </symbol>
+      <symbol id="i-play" viewBox="0 0 32 36">
+        <path fill="#00d0ff" d="M2 1 19 18 2 35Z"/>
+        <path fill="#00ed8d" d="m2 1 21 12-4 5Z"/>
+        <path fill="#ffce00" d="m23 13 7 4a1.2 1.2 0 0 1 0 2l-7 4-4-5Z"/>
+        <path fill="#ff4769" d="m2 35 17-17 4 5Z"/>
+      </symbol>
+    </svg>
+    <header class="header">
+      <div class="container nav">
+        <a class="brand" href="#main" aria-label="BBook — Trang chủ">
+          <span class="brand-badge" aria-hidden="true"></span>
         </a>
-
-        <div class="eyebrow" style="margin-top: 24px;">YOUR BEAUTY · YOUR MOMENT</div>
-
-        <h1>Một cuộc hẹn.<br>Một phiên bản<br><em>rạng rỡ.</em></h1>
-
-        <p class="hero-desc">
-          Gu của bạn. Artist của bạn. Khoảnh khắc của bạn.<br>
-          Khám phá portfolio từ các Makeup Artist chuyên nghiệp, tìm phong cách hợp gu và chủ động gửi yêu cầu đặt lịch làm đẹp theo cách riêng.
-        </p>
-
-        <div class="hero-actions">
-          <a class="button" data-store="android" href="https://play.google.com/store/apps/details?id=com.bbook.app" target="_blank" rel="noopener noreferrer" aria-label="Tải app BBook trên Google Play">Tải app <span aria-hidden="true">↗</span></a>
-          <a class="text-link" href="#showcase">Khám phá bên trong app <span aria-hidden="true">↓</span></a>
-        </div>
-
-        <div class="hero-note">
-          <span class="hero-note-icon" aria-hidden="true">✦</span>
-          <p>
-            <strong>ĐẸP MỌI LÚC, BOOK MỌI NƠI</strong><br>
-            Tải BBook trên Google Play và bắt đầu khám phá ngay trên Android.
-          </p>
-        </div>
-      </div>
-
-      <div class="hero-stage" aria-label="Giao diện thực tế của ứng dụng BBook" data-reveal>
-        <div class="stage-glow" aria-hidden="true"></div>
-
-        <!-- Secondary Background Device (Creating Depth) -->
-        <button class="phone-backdrop" data-preview aria-label="Xem màn hình danh sách dịch vụ Makeup Artist">
-          <img src="assets/images/1791426944641_117217008669909670_2526040477676367368_2fae04487c1f4ab53a7a6f944da8e8d6.jpg" alt="Danh sách dịch vụ của Makeup Artist trong BBook" width="858" height="1908" loading="lazy">
-        </button>
-
-        <!-- Flagship Smartphone Mockup (Portfolio Screen) -->
-        <button class="phone-mockup" data-preview aria-label="Xem chi tiết màn hình portfolio Makeup Artist">
-          <div class="phone-speaker" aria-hidden="true"></div>
-          <img src="assets/images/1791426944517_117217008669909670_2526040477676367368_3e4479421d9ebbfadfc46a97a3469d5b.jpg" alt="Portfolio và hồ sơ Makeup Artist Lý Huỳnh My trong ứng dụng BBook" width="858" height="1908" fetchpriority="high">
-        </button>
-
-        <!-- Floating Real Detail Badges -->
-        <div class="floating-badge badge-left" aria-hidden="true">
-          <div class="badge-avatar">
-            <span class="hero-note-icon">♡</span>
-          </div>
-          <div class="badge-info">
-            <strong>Lý Huỳnh My</strong>
-            <span>Nghệ sĩ trang điểm · Đã xác minh</span>
-          </div>
-        </div>
-
-        <div class="floating-badge badge-right" aria-hidden="true">
-          <span class="hero-note-icon">✨</span>
-          <div class="badge-info">
-            <strong>Chủ động chọn lịch</strong>
-            <span>Gửi yêu cầu tới Artist</span>
-          </div>
-        </div>
-
-        <span class="stage-caption">Ảnh chụp từ phiên bản thử nghiệm BBook · Nhấn vào ảnh để xem rõ</span>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         MANIFESTO / BRAND ESSENCE STRIP (SEAMLESS RUNWAY MARQUEE)
-         ====================================================================== -->
-    <section class="manifesto-strip" aria-label="Thông điệp giá trị BBook">
-      <div class="manifesto-track">
-        <div class="manifesto-inner">
-          <span>Tìm Artist hợp gu</span>
-          <span class="manifesto-dot" aria-hidden="true"></span>
-          <span>Khám phá Portfolio</span>
-          <span class="manifesto-dot" aria-hidden="true"></span>
-          <span>Minh bạch dịch vụ</span>
-          <span class="manifesto-dot" aria-hidden="true"></span>
-          <span>Chủ động gửi yêu cầu</span>
-          <span class="manifesto-dot" aria-hidden="true"></span>
-          <span>Tự tin tỏa sáng</span>
-          <span class="manifesto-dot" aria-hidden="true"></span>
-        </div>
-        <div class="manifesto-inner" aria-hidden="true">
-          <span>Tìm Artist hợp gu</span>
-          <span class="manifesto-dot" aria-hidden="true"></span>
-          <span>Khám phá Portfolio</span>
-          <span class="manifesto-dot" aria-hidden="true"></span>
-          <span>Minh bạch dịch vụ</span>
-          <span class="manifesto-dot" aria-hidden="true"></span>
-          <span>Chủ động gửi yêu cầu</span>
-          <span class="manifesto-dot" aria-hidden="true"></span>
-          <span>Tự tin tỏa sáng</span>
-          <span class="manifesto-dot" aria-hidden="true"></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         REAL MOBILE APP SHOWCASE: 3 ESSENTIAL PERSPECTIVES
-         ====================================================================== -->
-    <section id="showcase" class="section container">
-      <div class="section-header centered" data-reveal>
-        <span class="eyebrow">01 / TRẢI NGHIỆM THỰC TẾ</span>
-        <h2>Không chỉ là makeup.<br><em>Là gu của riêng bạn.</em></h2>
-        <p>
-          Từ tìm cảm hứng đến một cuộc hẹn đáng nhớ. Khám phá các góc nhìn chân thực bên trong ứng dụng BBook để hiểu rõ cách chúng mình kết nối bạn với chuyên viên trang điểm.
-        </p>
-      </div>
-
-      <div class="showcase-grid">
-        <!-- Feature 1: Portfolio Discovery -->
-        <article class="showcase-card" data-reveal>
-          <div class="showcase-card-header">
-            <span class="showcase-num">01 / KHÁM PHÁ</span>
-            <span class="showcase-tag">Portfolio thật</span>
-          </div>
-          <button class="showcase-screen-wrap" data-preview aria-label="Xem ảnh phóng to Portfolio Makeup Artist">
-            <img src="assets/images/1791426944517_117217008669909670_2526040477676367368_3e4479421d9ebbfadfc46a97a3469d5b.jpg" alt="Màn hình Portfolio tác phẩm trang điểm trong ứng dụng BBook" width="858" height="1908" loading="lazy">
+        <nav id="navigation" aria-label="Điều hướng chính">
+          <a href="#main" aria-current="page">Trang chủ</a>
+          <a href="#customers">Dành cho khách</a>
+          <a href="#artists">Dành cho MUA</a>
+          <a href="#showcase">Tính năng</a>
+          <a href="#contact">Liên hệ</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="button small nav-cta" data-store="android" href="https://play.google.com/store/apps/details?id=com.bbook.app" target="_blank" rel="noopener noreferrer">Tải ứng dụng<svg class="icon" aria-hidden="true">
+              <use href="#i-arrow"/>
+            </svg>
+          </a>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Mở menu">
+            <span>
+            </span>
+            <span>
+            </span>
+            <span>
+            </span>
           </button>
-          <h3>Tìm cảm hứng & chạm đúng gu</h3>
-          <p>
-            Lướt xem trực tiếp các tác phẩm thực tế do chính Makeup Artist thực hiện. Tự do tìm kiếm phong cách phù hợp với khuôn mặt và sự kiện của bạn.
-          </p>
-        </article>
-
-        <!-- Feature 2: Service & Profile Details -->
-        <article class="showcase-card" data-reveal>
-          <div class="showcase-card-header">
-            <span class="showcase-num">02 / KẾT NỐI</span>
-            <span class="showcase-tag">Minh bạch dịch vụ</span>
-          </div>
-          <button class="showcase-screen-wrap" data-preview aria-label="Xem ảnh phóng to danh sách dịch vụ của Artist">
-            <img src="assets/images/1791426944641_117217008669909670_2526040477676367368_2fae04487c1f4ab53a7a6f944da8e8d6.jpg" alt="Màn hình thông tin hồ sơ và danh sách dịch vụ của Artist" width="858" height="1908" loading="lazy">
-          </button>
-          <h3>Đúng artist, đúng nhu cầu</h3>
-          <p>
-            Xem hồ sơ chi tiết, các gói dịch vụ có sẵn và thời gian thực hiện dự kiến. Dễ dàng nhắn tin trao đổi với Artist trước khi gửi yêu cầu đặt lịch.
-          </p>
-        </article>
-
-        <!-- Feature 3: Clear Booking Flow -->
-        <article class="showcase-card" data-reveal>
-          <div class="showcase-card-header">
-            <span class="showcase-num">03 / ĐẶT LỊCH</span>
-            <span class="showcase-tag">Chủ động hẹn</span>
-          </div>
-          <button class="showcase-screen-wrap" data-preview aria-label="Xem ảnh phóng to chi tiết đặt dịch vụ">
-            <img src="assets/images/1791426944773_117217008669909670_2526040477676367368_d3d1af2cd93193ed8189fb59d1554cb7.jpg" alt="Màn hình chi tiết dịch vụ makeup và nút thêm vào booking" width="858" height="1908" loading="lazy">
-          </button>
-          <h3>Chủ động cho ngày hẹn rạng rỡ</h3>
-          <p>
-            Chọn dịch vụ mong muốn, gửi yêu cầu đặt lịch và theo dõi trạng thái phản hồi từ Artist ngay trong giao diện ứng dụng.
-          </p>
-        </article>
-      </div>
-
-      <p class="showcase-caption">
-        * Ảnh chụp minh họa trải nghiệm BBook. Giao diện và tính năng có thể thay đổi qua các bản cập nhật.
-      </p>
-    </section>
-
-    <!-- ======================================================================
-         HOW IT WORKS (3 CLEAR STEPS)
-         ====================================================================== -->
-    <section id="how-it-works" class="section container">
-      <div class="how-container" data-reveal>
-        <div class="how-layout">
-          <div>
-            <span class="eyebrow">02 / QUY TRÌNH ĐẶT LỊCH</span>
-            <h2>Đơn giản hóa hành trình.<br><em>Trọn vẹn sự rạng rỡ.</em></h2>
-            <p>
-              Không còn mất hàng giờ tìm kiếm rời rạc trên mạng xã hội. BBook mang đến một quy trình kết nối liền mạch và minh bạch giữa bạn và Makeup Artist.
-            </p>
-            <div style="margin-top: 28px;">
-              <a class="button secondary" href="#download">Bắt đầu khám phá <span aria-hidden="true">↓</span></a>
-            </div>
-          </div>
-
-          <ol class="how-steps">
-            <li class="how-step-item">
-              <span class="step-badge" aria-hidden="true">01</span>
-              <div class="step-content">
-                <h3>Khám phá & chọn Artist hợp gu</h3>
-                <p>Lướt xem portfolio những layout trang điểm thực tế, đọc thông tin và lựa chọn chuyên viên có phong cách đồng điệu với bạn.</p>
-              </div>
-            </li>
-
-            <li class="how-step-item">
-              <span class="step-badge" aria-hidden="true">02</span>
-              <div class="step-content">
-                <h3>Chọn dịch vụ & gửi yêu cầu hẹn</h3>
-                <p>Xem chi tiết dịch vụ, lựa chọn thời gian phù hợp và gửi yêu cầu đặt lịch trực tiếp trên ứng dụng để Artist xem xét tiếp nhận.</p>
-              </div>
-            </li>
-
-            <li class="how-step-item">
-              <span class="step-badge" aria-hidden="true">03</span>
-              <div class="step-content">
-                <h3>Nhận xác nhận & sẵn sàng tỏa sáng</h3>
-                <p>Theo dõi phản hồi và thông tin lịch hẹn đã được xác nhận trong app. An tâm chuẩn bị cho diện mạo rạng rỡ đúng như mong đợi.</p>
-              </div>
-            </li>
-          </ol>
         </div>
       </div>
-    </section>
-
-    <!-- ======================================================================
-         APP RELEASE STATUS
-         ====================================================================== -->
-    <section id="release" class="section container" aria-labelledby="release-title">
-      <div class="release-panel" data-reveal>
-        <div class="release-grid">
-          <div class="release-copy">
-            <span class="eyebrow" style="color: var(--rose-glow);">03 / LỘ TRÌNH PHÁT HÀNH</span>
-            <h2 id="release-title">BBook đã có trên Google Play.<br><em>Sẵn sàng cho cuộc hẹn của bạn.</em></h2>
-            <p>
-              BBook đã chính thức phát hành trên Google Play (CH Play). Tải ứng dụng về điện thoại Android để khám phá Makeup Artist, tìm phong cách yêu thích và chủ động gửi yêu cầu đặt lịch làm đẹp.
-            </p>
-
-            <div class="release-timeline">
-              <div class="timeline-item">
-                <span class="timeline-status">
-                  <span class="live-dot" aria-hidden="true"></span> Đã phát hành
-                </span>
-                <strong>Google Play (CH Play)</strong>
-                <span>Tải và cài đặt BBook trực tiếp từ cửa hàng ứng dụng</span>
-              </div>
-
-              <div class="timeline-item">
-                <span class="timeline-status">Tiếp tục hoàn thiện</span>
-                <strong>Đồng hành cùng bạn</strong>
-                <span>Lắng nghe góp ý và cập nhật trải nghiệm trên ứng dụng</span>
-              </div>
+    </header>
+    <main id="main">
+      <section class="hero" id="hero" aria-labelledby="hero-title">
+        <picture class="campaign hero-scene" aria-hidden="true">
+          <source media="(max-width: 700px)" srcset="assets/images/campaign-hero-mobile-v1.webp">
+          <img src="assets/images/campaign-hero-v1.webp" width="1024" height="375" alt="" fetchpriority="high">
+        </picture>
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">BBook Makeup</p>
+            <h1 id="hero-title">Đẹp hơn mỗi ngày<br>
+              <em>cùng BBook.</em>
+            </h1>
+            <p class="hero-description">Kết nối với Makeup Artist hợp gu. Khám phá phong cách, xem tác phẩm và đặt lịch cho khoảnh khắc của riêng bạn.</p>
+            <div class="download-actions">
+              <a class="store-badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.bbook.app" target="_blank" rel="noopener noreferrer" aria-label="Tải BBook trên Google Play">
+                <img src="assets/images/google-play-badge-vi.png" width="646" height="250" alt="Tải ứng dụng trên Google Play">
+              </a>
+              <a class="qr-link" data-store="android" href="https://play.google.com/store/apps/details?id=com.bbook.app" target="_blank" rel="noopener noreferrer" aria-label="Quét mã hoặc mở Google Play để tải BBook">
+                <img src="assets/images/google-play-qr.svg" width="76" height="76" alt="Mã QR dẫn đến BBook trên Google Play">
+                <span>Quét mã QR<br>để tải ứng dụng</span>
+              </a>
             </div>
-
-            <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
-              <a class="button" data-store="android" href="https://play.google.com/store/apps/details?id=com.bbook.app" target="_blank" rel="noopener noreferrer" aria-label="Tải app BBook trên Google Play">Tải app <span aria-hidden="true">↗</span></a>
-            </div>
-
-            <p style="font-size: 12px; color: #a4919e; margin-top: 20px;">
-              Dành cho điện thoại Android. Nhấn “Tải app” để mở trang BBook trên Google Play.
-            </p>
-          </div>
-
-          <div class="release-visual">
-            <button class="release-phone" data-preview aria-label="Xem ảnh giới thiệu BBook trên Google Play">
-              <img src="assets/images/apprelease.jpg" alt="Ảnh chụp trang BBook Truy cập sớm trên Google Play" width="858" height="1908" loading="lazy">
-            </button>
-            <div class="release-badge-stamp" aria-hidden="true">
-              <strong>ĐÃ PHÁT HÀNH</strong>
-              <small>BBook · Android</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         FOR MAKEUP ARTISTS (DÀNH CHO ARTIST)
-         ====================================================================== -->
-    <section id="artists" class="section container" aria-labelledby="artists-title">
-      <div class="artist-container" data-reveal>
-        <div class="artist-grid">
-          <div class="artist-editorial-card">
-            <p class="artist-quote">
-              “Tài năng và phong cách của bạn xứng đáng được tìm thấy và trân trọng.”
-            </p>
-            <div class="artist-preview-frame">
-              <img src="assets/images/1791426944641_117217008669909670_2526040477676367368_2fae04487c1f4ab53a7a6f944da8e8d6.jpg" alt="Giao diện hồ sơ Makeup Artist trên BBook" width="858" height="1908" loading="lazy">
-            </div>
-          </div>
-
-          <div class="artist-copy">
-            <span class="eyebrow">04 / DÀNH CHO MAKEUP ARTIST</span>
-            <h2 id="artists-title">Bạn tạo nên vẻ đẹp.<br><em>BBook tạo nên sự kết nối.</em></h2>
-            <p>
-              BBook được xây dựng để trở thành nền tảng số chuyên nghiệp, nơi các chuyên viên trang điểm tự tin giới thiệu dấu ấn phong cách riêng, tiếp cận khách hàng tiềm năng và quản lý yêu cầu công việc tập trung.
-            </p>
-
-            <ul class="artist-benefits">
+            <a class="hero-artist-link" href="#artists">Bạn là Makeup Artist? Khám phá BBook <svg class="icon" aria-hidden="true">
+                <use href="#i-arrow"/>
+              </svg>
+            </a>
+            <ul class="hero-notes">
               <li>
-                <span class="benefit-icon" aria-hidden="true">✓</span>
-                <div>
-                  <strong style="color: var(--ink-primary);">Hồ sơ & Portfolio chuyên nghiệp:</strong>
-                  Trưng bày hình ảnh tác phẩm sắc nét, tạo ấn tượng tin cậy với khách hàng yêu thích gu của bạn.
-                </div>
-              </li>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-search"/>
+                </svg>Tìm MUA hợp gu</li>
               <li>
-                <span class="benefit-icon" aria-hidden="true">✓</span>
-                <div>
-                  <strong style="color: var(--ink-primary);">Tiếp cận khách hàng thực tế:</strong>
-                  Kết nối với tệp khách hàng trẻ đang chủ động tìm kiếm dịch vụ makeup cho tiệc, sự kiện, chụp ảnh.
-                </div>
-              </li>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-calendar"/>
+                </svg>Chủ động đặt lịch</li>
               <li>
-                <span class="benefit-icon" aria-hidden="true">✓</span>
-                <div>
-                  <strong style="color: var(--ink-primary);">Quản lý yêu cầu đặt lịch rõ ràng:</strong>
-                  Tiếp nhận, xem xét và theo dõi thông tin các cuộc hẹn một cách khoa học ngay trên điện thoại.
-                </div>
-              </li>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-heart"/>
+                </svg>Lưu cảm hứng đẹp</li>
             </ul>
-
-            <a class="button dark-button" href="#download">Khám phá BBook cho Artist <span aria-hidden="true">↗</span></a>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         FAQ SECTION
-         ====================================================================== -->
-    <section id="faq" class="section container" aria-labelledby="faq-title">
-      <div class="faq-grid" data-reveal>
-        <div>
-          <span class="eyebrow">05 / GIẢI ĐÁP THẮC MẮC</span>
-          <h2 id="faq-title">Một vài điều<br><em>bạn muốn biết.</em></h2>
-          <p>
-            Thông tin về cách tải ứng dụng và các câu hỏi thường gặp khi sử dụng BBook.
-          </p>
-        </div>
-
-        <div class="faq-list">
-          <details class="faq-item">
-            <summary>
-              <span>BBook đã phát hành chính thức chưa?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">+</span>
-            </summary>
-            <p>
-              BBook đã chính thức có mặt trên Google Play (CH Play). Bạn có thể nhấn “Tải app” trên website để mở trang BBook và cài đặt ứng dụng trên điện thoại Android.
-            </p>
-          </details>
-
-          <details class="faq-item">
-            <summary>
-              <span>Tôi có thể trải nghiệm BBook ngay bây giờ không?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">+</span>
-            </summary>
-            <p>
-              Có. Nhấn “Tải app” để mở Google Play, chọn “Cài đặt”, sau đó mở BBook để khám phá hồ sơ Artist, phong cách trang điểm và gửi yêu cầu đặt lịch làm đẹp.
-            </p>
-          </details>
-
-          <details class="faq-item">
-            <summary>
-              <span>Tôi có thể đặt lịch làm đẹp trực tiếp trên website không?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">+</span>
-            </summary>
-            <p>
-              Website hiện đóng vai trò giới thiệu ứng dụng BBook và cung cấp thông tin sản phẩm. Toàn bộ trải nghiệm khám phá hồ sơ Artist, nhắn tin trao đổi chi tiết và gửi yêu cầu đặt lịch được thực hiện bên trong ứng dụng di động BBook.
-            </p>
-          </details>
-
-          <details class="faq-item">
-            <summary>
-              <span>BBook đã có phiên bản dành cho iPhone (iOS) chưa?</span>
-              <span class="faq-toggle-icon" aria-hidden="true">+</span>
-            </summary>
-            <p>
-              Hiện tại BBook đã có trên Google Play (CH Play) dành cho điện thoại Android. Phiên bản iPhone (iOS) chưa được phát hành; thông tin mới sẽ được cập nhật trên website.
-            </p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         APP DOWNLOAD SECTION (GOOGLE PLAY)
-         ====================================================================== -->
-    <section id="download" class="section container" aria-labelledby="download-title">
-      <div class="download-card-wrapper" data-reveal>
-        <div class="section-header centered" style="margin-bottom: 24px;">
-          <span class="eyebrow">TẢI ỨNG DỤNG BBOOK</span>
-          <h2 id="download-title">Cuộc hẹn đầu tiên<br><em>bắt đầu từ đây.</em></h2>
-          <p>
-            BBook đã có trên Google Play (CH Play).<br>
-            Tải ứng dụng và bắt đầu trải nghiệm trên điện thoại Android.
-          </p>
-        </div>
-
-        <div class="download-layout">
-          <!-- App Download Card -->
-          <div class="apk-action-box">
-            <div class="apk-badge-header">
-              <div class="apk-icon-bubble" aria-hidden="true">↓</div>
-              <div class="apk-title-wrap">
-                <h3>BBook cho Android</h3>
-                <span class="apk-status-tag">Đã phát hành trên Google Play</span>
-              </div>
+          <div class="hero-visual" aria-label="Giao diện thật của ứng dụng BBook">
+            <div class="hero-phones">
+              <span class="phone phone-back">
+                  <img src="assets/images/1791426944641_117217008669909670_2526040477676367368_2fae04487c1f4ab53a7a6f944da8e8d6.jpg" width="858" height="1908" alt="Danh sách dịch vụ makeup trên BBook" loading="lazy" decoding="async">
+              </span>
+              <span class="phone phone-front">
+                <img src="assets/images/1791426944517_117217008669909670_2526040477676367368_3e4479421d9ebbfadfc46a97a3469d5b.jpg" width="858" height="1908" alt="Hồ sơ Makeup Artist và portfolio trong BBook"  decoding="async">
+              </span>
             </div>
-
-            <p>
-              Tải BBook trực tiếp từ Google Play để khám phá Makeup Artist, tìm phong cách yêu thích và gửi yêu cầu đặt lịch làm đẹp ngay trên điện thoại.
-            </p>
-
-            <a class="button apk-button-cta" data-store="android" href="https://play.google.com/store/apps/details?id=com.bbook.app" target="_blank" rel="noopener noreferrer" aria-label="Tải app BBook trên Google Play">
-              Tải app <span aria-hidden="true">↗</span>
-            </a>
-
-            <p class="apk-meta-specs">
-              Cài đặt và cập nhật trực tiếp qua Google Play (CH Play)
-            </p>
-
-          </div>
-
-          <!-- 3-Step Install Guide -->
-          <div class="install-guide-box">
-            <h3>3 bước cài đặt đơn giản</h3>
-            <ol class="install-steps-list">
-              <li>
-                <span class="install-num" aria-hidden="true">1</span>
-                <div class="install-text">
-                  <strong>Mở BBook trên Google Play</strong>
-                  <p>Nhấn nút “Tải app” để đến trang BBook trên Google Play (CH Play).</p>
-                </div>
-              </li>
-              <li>
-                <span class="install-num" aria-hidden="true">2</span>
-                <div class="install-text">
-                  <strong>Chọn Cài đặt</strong>
-                  <p>Nhấn “Cài đặt” trên Google Play và chờ ứng dụng được tải về điện thoại Android.</p>
-                </div>
-              </li>
-              <li>
-                <span class="install-num" aria-hidden="true">3</span>
-                <div class="install-text">
-                  <strong>Mở & bắt đầu trải nghiệm</strong>
-                  <p>Nhấn “Mở” để vào BBook, khám phá Makeup Artist và bắt đầu đặt lịch làm đẹp.</p>
-                </div>
-              </li>
-            </ol>
           </div>
         </div>
-
-        <!-- Store Badges -->
-        <div class="store-badges-row">
-          <p class="store-note">
-            Ứng dụng hiện có trên Google Play dành cho điện thoại Android.
-          </p>
-
-          <div class="store-links-wrap">
-            <a class="store-item" data-store="android" href="https://play.google.com/store/apps/details?id=com.bbook.app" target="_blank" rel="noopener noreferrer" aria-label="Tải app BBook trên Google Play">
-              <span class="store-icon" aria-hidden="true">▷</span>
-              <div class="store-info">
-                <small>Tải ứng dụng trên</small>
-                <strong>Google Play (CH Play)</strong>
-              </div>
-            </a>
-
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- ======================================================================
-       FOOTER
-       ====================================================================== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-top">
-        <a class="brand" href="#main" aria-label="BBook — Về đầu trang">
-          <span class="brand-badge">
-            <img class="brand-badge-img" src="assets/images/bbook-logo.png" alt="BBook Logo" width="1500" height="1500">
+      </section>
+      <div class="container benefits" aria-label="Khám phá BBook">
+        <div>
+          <span class="icon-disc">
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-people"/>
+            </svg>
           </span>
-          <div class="brand-text-wrap">
-            <span class="brand-tagline">Đẹp mọi lúc, book mọi nơi</span>
-          </div>
-        </a>
-
-        <p class="footer-quote">
-          Một cuộc hẹn. Một phiên bản rạng rỡ.
-        </p>
-
-        <a class="text-link" href="#main">Về đầu trang <span aria-hidden="true">↑</span></a>
-      </div>
-
-      <div class="footer-bottom">
-        <span>© <span id="year">2026</span> BBook. Bảo lưu mọi quyền.</span>
-        
-        <div class="footer-legal-links">
-          <a href="privacy.html">Quyền riêng tư</a>
-          <a href="delete-account.html">Xóa tài khoản</a>
-          <a href="mailto:bbooksupport@gmail.com">Hỗ trợ: bbooksupport@gmail.com</a>
+          <p>
+            <strong>Khám phá chuyên viên</strong>
+            <span>Xem hồ sơ, tác phẩm và đánh giá trước khi lựa chọn.</span>
+          </p>
         </div>
-
-        <span>Nền tảng kết nối Makeup Artist & Khách hàng.</span>
+        <div>
+          <span class="icon-disc">
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-calendar"/>
+            </svg>
+          </span>
+          <p>
+            <strong>Đặt lịch dễ dàng</strong>
+            <span>Chọn dịch vụ, thời gian và gửi yêu cầu trong app.</span>
+          </p>
+        </div>
+        <div>
+          <span class="icon-disc">
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-picture"/>
+            </svg>
+          </span>
+          <p>
+            <strong>Đa dạng phong cách</strong>
+            <span>Từ tự nhiên đến cô dâu, dự tiệc và chụp ảnh.</span>
+          </p>
+        </div>
+        <div>
+          <span class="icon-disc">
+            <svg class="icon" aria-hidden="true">
+              <use href="#i-share"/>
+            </svg>
+          </span>
+          <p>
+            <strong>Kết nối và sẻ chia</strong>
+            <span>Theo dõi MUA, nhắn tin và chia sẻ nguồn cảm hứng.</span>
+          </p>
+        </div>
       </div>
-    </div>
-  </footer>
-
-  <!-- ======================================================================
-       ACCESSIBLE IMAGE VIEWER DIALOG (MODAL)
-       ====================================================================== -->
-  <dialog class="image-viewer" aria-labelledby="viewer-title">
-    <div class="viewer-header">
-      <h2 id="viewer-title">Ảnh chụp ứng dụng BBook</h2>
-      <button class="viewer-close" aria-label="Đóng ảnh phóng to">×</button>
-    </div>
-    <img class="viewer-image" alt="">
-    <p class="viewer-caption"></p>
-  </dialog>
-</body>
+      <section class="customers section" id="customers" aria-labelledby="customers-title">
+        <div class="container customer-layout">
+          <figure class="customer-visual">
+            <img src="assets/images/campaign-customer-mobile-v1.webp" width="440" height="254" alt="Phong cách makeup hồng nhẹ nhàng cùng hoa và chất liệu voan" loading="lazy" decoding="async">
+          </figure>
+          <div class="customer-copy">
+            <p class="eyebrow">Dành cho khách hàng</p>
+            <h2 id="customers-title">Tìm phong cách makeup<br>phù hợp với bạn.</h2>
+            <p>Một buổi tiệc, ngày chụp ảnh hay ngày trọng đại. Bắt đầu từ cảm hứng bạn yêu thích, tìm người có thể cùng bạn tạo nên diện mạo ấy.</p>
+            <div class="style-tags" aria-label="Phong cách theo dịp">
+              <span>Tự nhiên</span>
+              <span>Dự tiệc</span>
+              <span>Cô dâu</span>
+              <span>Chụp ảnh</span>
+            </div>
+            <div class="customer-features">
+              <article>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-search"/>
+                </svg>
+                <div>
+                  <h3>Khám phá MUA hợp gu</h3>
+                  <p>Xem portfolio, dịch vụ và đánh giá trên cùng một hồ sơ.</p>
+                </div>
+              </article>
+              <article>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-calendar"/>
+                </svg>
+                <div>
+                  <h3>Chủ động cho cuộc hẹn</h3>
+                  <p>Chọn dịch vụ, gửi yêu cầu và theo dõi lịch hẹn trong ứng dụng.</p>
+                </div>
+              </article>
+              <article>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#i-heart"/>
+                </svg>
+                <div>
+                  <h3>Giữ lại nguồn cảm hứng</h3>
+                  <p>Theo dõi người bạn yêu thích và chia sẻ tác phẩm với bạn bè.</p>
+                </div>
+              </article>
+            </div>
+            <a class="text-link" data-store="android" href="https://play.google.com/store/apps/details?id=com.bbook.app" target="_blank" rel="noopener noreferrer">Khám phá trong BBook <svg class="icon" aria-hidden="true">
+                <use href="#i-arrow"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="artists section" id="artists" aria-labelledby="artists-title">
+        <picture class="campaign artist-scene" aria-hidden="true">
+          <source media="(max-width: 700px)" srcset="assets/images/campaign-artist-mobile-v1.webp">
+          <img src="assets/images/campaign-artist-mobile-v1.webp" width="604" height="234" alt="" loading="lazy" decoding="async">
+        </picture>
+        <div class="container artist-layout">
+          <div class="artist-copy">
+            <p class="eyebrow">Dành cho Makeup Artist</p>
+            <h2 id="artists-title">Phát triển sự nghiệp<br>
+              <em>cùng BBook.</em>
+            </h2>
+            <p>Xây dựng hồ sơ mang dấu ấn riêng. Giới thiệu dịch vụ, đăng tác phẩm và kết nối với những khách hàng đang tìm phong cách của bạn.</p>
+            <a class="button " data-store="android" href="https://play.google.com/store/apps/details?id=com.bbook.app" target="_blank" rel="noopener noreferrer">Trở thành Makeup Artist<svg class="icon" aria-hidden="true">
+                <use href="#i-arrow"/>
+              </svg>
+            </a>
+            <p class="artist-hint">Tạo hồ sơ và giới thiệu dịch vụ của bạn trong BBook.</p>
+          </div>
+          <ul class="artist-tools">
+            <li>
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-people"/>
+              </svg>Hồ sơ chuyên nghiệp</li>
+            <li>
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-picture"/>
+              </svg>Portfolio của riêng bạn</li>
+            <li>
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-calendar"/>
+              </svg>Quản lý lịch hẹn</li>
+            <li>
+              <svg class="icon" aria-hidden="true">
+                <use href="#i-share"/>
+              </svg>Chia sẻ hồ sơ & tác phẩm</li>
+          </ul>
+        </div>
+      </section>
+      <section class="showcase section" id="showcase" aria-labelledby="showcase-title">
+        <img class="features-decoration" src="assets/images/campaign-features-v1.webp" width="1024" height="172" alt="" loading="lazy" decoding="async">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Tính năng nổi bật</p>
+            <h2 id="showcase-title">Trải nghiệm làm đẹp trọn vẹn.</h2>
+            <p>Mọi thông tin cần thiết, trong tầm tay bạn.<br>Chạm vào màn hình để xem rõ hơn.</p>
+          </div>
+          <div class="app-gallery">
+            <figure>
+              <button class="screen-preview" data-preview type="button" aria-label="Phóng to màn hình hồ sơ và portfolio">
+                <span class="phone ">
+                  <img src="assets/images/1791426944517_117217008669909670_2526040477676367368_3e4479421d9ebbfadfc46a97a3469d5b.jpg" width="858" height="1908" alt="Hồ sơ Makeup Artist: portfolio, dịch vụ, đánh giá và thông tin" loading="lazy" decoding="async">
+                </span>
+                <span class="preview-hint">Xem màn hình <span aria-hidden="true">↗</span>
+                </span>
+              </button>
+              <figcaption>
+                <h3>Hiểu hơn về Makeup Artist</h3>
+                <p>Xem hồ sơ và tác phẩm trước khi chọn người đồng hành.</p>
+              </figcaption>
+            </figure>
+            <figure>
+              <button class="screen-preview" data-preview type="button" aria-label="Phóng to màn hình danh sách dịch vụ">
+                <span class="phone ">
+                  <img src="assets/images/1791426944641_117217008669909670_2526040477676367368_2fae04487c1f4ab53a7a6f944da8e8d6.jpg" width="858" height="1908" alt="Danh sách dịch vụ makeup với giá và thời lượng trên BBook" loading="lazy" decoding="async">
+                </span>
+                <span class="preview-hint">Xem màn hình <span aria-hidden="true">↗</span>
+                </span>
+              </button>
+              <figcaption>
+                <h3>Chọn dịch vụ phù hợp</h3>
+                <p>Tham khảo mức giá và thời lượng cho dịp đặc biệt của bạn.</p>
+              </figcaption>
+            </figure>
+            <figure>
+              <button class="screen-preview" data-preview type="button" aria-label="Phóng to màn hình chi tiết dịch vụ">
+                <span class="phone ">
+                  <img src="assets/images/1791426944773_117217008669909670_2526040477676367368_d3d1af2cd93193ed8189fb59d1554cb7.jpg" width="858" height="1908" alt="Chi tiết dịch vụ makeup và nút đặt lịch trong BBook" loading="lazy" decoding="async">
+                </span>
+                <span class="preview-hint">Xem màn hình <span aria-hidden="true">↗</span>
+                </span>
+              </button>
+              <figcaption>
+                <h3>Sẵn sàng cho cuộc hẹn</h3>
+                <p>Đọc thông tin dịch vụ rồi bắt đầu yêu cầu đặt lịch ngay trong app.</p>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="booking-steps" id="how-it-works">
+            <h3>Đặt lịch trong ba bước</h3>
+            <ol>
+              <li>
+                <span>01</span>Tìm Makeup Artist</li>
+              <li>
+                <span>02</span>Chọn dịch vụ & thời gian</li>
+              <li>
+                <span>03</span>Gửi yêu cầu, chờ xác nhận</li>
+            </ol>
+            <p>Lịch hẹn được xác nhận sau khi Makeup Artist tiếp nhận yêu cầu.</p>
+          </div>
+        </div>
+      </section>
+      <section class="download section" id="download" aria-labelledby="download-title">
+        <span id="release" class="anchor-target" aria-hidden="true">
+        </span>
+        <picture class="campaign download-scene" aria-hidden="true">
+          <source media="(max-width: 700px)" srcset="assets/images/campaign-download-mobile-v1.webp">
+          <img src="assets/images/campaign-download-v1.webp" width="1024" height="229" alt="" loading="lazy" decoding="async">
+        </picture>
+        <div class="container download-layout">
+          <div class="download-copy">
+            <p class="eyebrow">Cuộc hẹn đẹp tiếp theo</p>
+            <h2 id="download-title">Sẵn sàng trải nghiệm BBook?</h2>
+            <p>Tải ứng dụng trên Google Play và bắt đầu<br>hành trình làm đẹp của bạn.</p>
+            <div class="download-actions">
+              <a class="store-badge" data-store="android" href="https://play.google.com/store/apps/details?id=com.bbook.app" target="_blank" rel="noopener noreferrer" aria-label="Tải BBook trên Google Play">
+                <img src="assets/images/google-play-badge-vi.png" width="646" height="250" alt="Tải ứng dụng trên Google Play">
+              </a>
+              <a class="qr-link" data-store="android" href="https://play.google.com/store/apps/details?id=com.bbook.app" target="_blank" rel="noopener noreferrer" aria-label="Quét mã hoặc mở Google Play để tải BBook">
+                <img src="assets/images/google-play-qr.svg" width="76" height="76" alt="Mã QR dẫn đến BBook trên Google Play">
+                <span>Quét mã QR<br>để tải ứng dụng</span>
+              </a>
+            </div>
+            <p class="download-note">Hiện có trên Android.</p>
+          </div>
+        </div>
+      </section>
+      <section class="faq section" id="faq" aria-labelledby="faq-title">
+        <div class="container faq-layout">
+          <div>
+            <p class="eyebrow">Câu hỏi thường gặp</p>
+            <h2 id="faq-title">Những điều<br>bạn muốn biết.</h2>
+            <p>Cần hỗ trợ? <a href="mailto:bbooksupport@gmail.com">Liên hệ với chúng tôi.</a>
+            </p>
+          </div>
+          <div class="faq-list">
+            <details>
+              <summary>BBook là gì?<span aria-hidden="true">+</span>
+              </summary>
+              <p>BBook là ứng dụng kết nối khách hàng với Makeup Artist. Bạn có thể khám phá hồ sơ, xem tác phẩm và dịch vụ, nhắn tin và gửi yêu cầu đặt lịch trong ứng dụng.</p>
+            </details>
+            <details>
+              <summary>Làm thế nào để đặt lịch trên BBook?<span aria-hidden="true">+</span>
+              </summary>
+              <p>Tải app, tìm Makeup Artist phù hợp, chọn dịch vụ và thời gian rồi gửi yêu cầu. Theo dõi trạng thái trong ứng dụng và trao đổi với MUA để xác nhận cuộc hẹn.</p>
+            </details>
+            <details>
+              <summary>Tôi là Makeup Artist, bắt đầu như thế nào?<span aria-hidden="true">+</span>
+              </summary>
+              <p>Tải ứng dụng BBook trên Google Play và hoàn thiện hồ sơ Makeup Artist. Thêm dịch vụ và portfolio để khách hàng hiểu hơn về phong cách của bạn.</p>
+            </details>
+            <details>
+              <summary>Tôi có thể đặt lịch ngay trên website không?<span aria-hidden="true">+</span>
+              </summary>
+              <p>Website này giới thiệu ứng dụng. Để nhắn tin, theo dõi và đặt lịch, hãy sử dụng BBook trên điện thoại Android.</p>
+            </details>
+            <details>
+              <summary>BBook đã có trên iPhone chưa?<span aria-hidden="true">+</span>
+              </summary>
+              <p>Trang hiện cung cấp đường dẫn tải BBook trên Google Play cho Android. Khi có phiên bản iOS chính thức, chúng tôi sẽ cập nhật đường dẫn tại đây.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer" id="contact">
+      <img class="footer-decoration" src="assets/images/campaign-flowers-v1.webp" width="1024" height="223" alt="" loading="lazy" decoding="async">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a class="brand" href="#main" aria-label="BBook — Trang chủ">
+              <span class="brand-badge" aria-hidden="true"></span>
+            </a>
+            <p>Kết nối vẻ đẹp.<br>Giữ những khoảnh khắc đáng nhớ.</p>
+          </div>
+          <div>
+            <h3>Khám phá BBook</h3>
+            <a href="#customers">Dành cho khách hàng</a>
+            <a href="#artists">Dành cho Makeup Artist</a>
+            <a href="#showcase">Trải nghiệm ứng dụng</a>
+            <a href="#faq">Câu hỏi thường gặp</a>
+          </div>
+          <div>
+            <h3>Hỗ trợ</h3>
+            <a href="mailto:bbooksupport@gmail.com">bbooksupport@gmail.com</a>
+            <a href="privacy.html">Chính sách quyền riêng tư</a>
+            <a href="delete-account.html">Yêu cầu xóa tài khoản</a>
+            <a data-store="android" href="https://play.google.com/store/apps/details?id=com.bbook.app" target="_blank" rel="noopener noreferrer">Tải BBook trên Google Play</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© <span id="year">2026</span> BBook. Bảo lưu mọi quyền.</p>
+          <p>Đẹp hơn mỗi ngày cùng BBook.</p>
+        </div>
+      </div>
+    </footer>
+    <dialog class="image-viewer" aria-labelledby="viewer-title">
+      <div class="viewer-header">
+        <h2 id="viewer-title">Ảnh chụp ứng dụng BBook</h2>
+        <button class="viewer-close" type="button" aria-label="Đóng ảnh phóng to">×</button>
+      </div>
+      <img class="viewer-image" width="858" height="1908" alt="">
+      <p class="viewer-caption">
+      </p>
+    </dialog>
+  </body>
 </html>

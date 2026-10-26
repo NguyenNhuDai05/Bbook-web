@@ -17,7 +17,3 @@ document.querySelectorAll('[data-preview]').forEach(button => button.addEventLis
 viewer.querySelector('.viewer-close').addEventListener('click', () => viewer.close());
 viewer.addEventListener('close', () => { viewerImage.removeAttribute('src'); previousFocus?.focus({ preventScroll: true }); });
 viewer.addEventListener('click', event => { const rect = viewer.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) viewer.close(); });
-if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }), { threshold: 0.08 });
-  document.querySelectorAll('[data-reveal]').forEach(element => { element.classList.add('reveal-ready'); observer.observe(element); });
-}
