@@ -26,7 +26,7 @@ const server = http.createServer(async (req, res) => {
     const relative = path.relative(root, file);
     const isAsset = relative.startsWith('assets' + path.sep) && path.extname(file) !== '.json' && Object.hasOwn(types, path.extname(file));
     const isAssociation = relative === path.join('.well-known', 'assetlinks.json');
-    if (relative.startsWith('..') || path.isAbsolute(relative) || (!['index.html', 'styles.css', 'app.js', 'analytics.js', 'apk-counter.js', 'analytics-config.js', 'favicon.svg', 'privacy.html', 'delete-account.html', 'legal.css'].includes(relative) && !isAsset && !isAssociation)) { res.writeHead(404); res.end('Not found'); return; }
+    if (relative.startsWith('..') || path.isAbsolute(relative) || (!['index.html', 'styles.css', 'app.js', 'analytics.js', 'apk-counter.js', 'analytics-config.js', 'privacy.html', 'delete-account.html', 'legal.css'].includes(relative) && !isAsset && !isAssociation)) { res.writeHead(404); res.end('Not found'); return; }
     const info = await stat(file);
     if (!info.isFile()) { res.writeHead(404); res.end('Not found'); return; }
     const headers = { 'Content-Type': types[path.extname(file)], 'Content-Length': info.size, 'Cache-Control': 'no-cache' };

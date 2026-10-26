@@ -36,7 +36,7 @@ trước khi thay URL trong Google Play Console. Việc sửa local không cập
 - `styles.css`: màu thương hiệu, typography và responsive.
 - `app.js`: menu mobile, xem ảnh và hiệu ứng xuất hiện nội dung.
 - Các nút “Tải app” và Google Play nằm trong `index.html`, trỏ trực tiếp tới `https://play.google.com/store/apps/details?id=com.bbook.app` và hoạt động cả khi tắt JavaScript. Khi đổi URL cửa hàng, cập nhật tất cả liên kết `data-store="android"`.
-- `favicon.svg`: biểu tượng website.
+- `assets/images/bbook-logo.png`: logo do chủ ứng dụng cung cấp, dùng cho đầu/chân trang và biểu tượng website. CSS phóng phần chữ ở giữa ảnh gốc để logo không bị nhỏ do khoảng trống quanh ảnh.
 
 Mockup app là minh họa bằng HTML/CSS, không phải screenshot thật. Không sử dụng đánh giá, số lượng người dùng hay số liệu giả. Google Analytics 4 được bật qua cấu hình môi trường và đồng ý cookie; xem [hướng dẫn GA4](GA4_SETUP.md). Các nút tải hiện mở Google Play và phát event `play_store_click` khi người dùng đã đồng ý thống kê. Phiên bản iOS chưa được phát hành.
 

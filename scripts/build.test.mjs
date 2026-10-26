@@ -15,7 +15,7 @@ test('build removes stale APKs, excludes installer assets and preserves images, 
   });
   await mkdir(path.join(fixture, 'scripts'));
   for (const file of ['build.mjs', 'generate-legal.mjs', 'analytics-config.mjs']) await cp(path.join(root, 'scripts', file), path.join(fixture, 'scripts', file));
-  for (const file of ['index.html', 'styles.css', 'app.js', 'analytics.js', 'apk-counter.js', 'favicon.svg', 'legal.css', 'legal/content.json', '.well-known/assetlinks.json']) {
+  for (const file of ['index.html', 'styles.css', 'app.js', 'analytics.js', 'apk-counter.js', 'legal.css', 'legal/content.json', '.well-known/assetlinks.json']) {
     const destination = path.join(fixture, file); await mkdir(path.dirname(destination), { recursive: true }); await cp(path.join(root, file), destination);
   }
   await cp(path.join(root, 'assets', 'images'), path.join(fixture, 'assets', 'images'), { recursive: true });

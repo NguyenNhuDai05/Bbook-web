@@ -4,6 +4,7 @@ import path from 'node:path';
 const root = path.resolve(import.meta.dirname, '..');
 const content = JSON.parse(await readFile(path.join(root, 'legal/content.json'), 'utf8'));
 const escape = value => value.replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+const brand = '<a class="brand" href="/" aria-label="BBook — Trang chủ"><span class="brand-logo"><img src="/assets/images/bbook-logo.png" alt="BBook" width="1500" height="1500"></span></a>';
 for (const [key, file] of [['privacy', 'privacy.html'], ['deletion', 'delete-account.html']]) {
   const document = content[key];
   const paragraphs = items => items.map(p => `<p>${escape(p)}</p>`).join('\n');
@@ -12,13 +13,13 @@ for (const [key, file] of [['privacy', 'privacy.html'], ['deletion', 'delete-acc
   const emailBody = encodeURIComponent('Xin chào BBook,\n\nTôi muốn yêu cầu xóa tài khoản BBook và dữ liệu liên quan.\n\nEmail đăng ký hoặc mã tài khoản:\n\nCảm ơn.');
   const requestUrl = `mailto:${escape(content.email)}?subject=${subject}&amp;body=${emailBody}`;
   const html = `<!doctype html>
-<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escape(document.title)} | B-Book</title><meta name="description" content="${escape(document.title)}. Liên hệ ${escape(content.email)}."><link rel="stylesheet" href="/legal.css"><script src="/analytics-config.js" defer></script><script src="/analytics.js" defer></script></head>
-<body${key === 'deletion' ? ' class="deletion-page"' : ''}><a class="skip-link" href="#content">Đến nội dung</a><header><a class="brand" href="/">BBook</a><nav aria-label="Thông tin hỗ trợ"><a href="/privacy/">Quyền riêng tư</a><a href="/delete-account/">Xóa tài khoản</a></nav></header>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escape(document.title)} | B-Book</title><meta name="description" content="${escape(document.title)}. Liên hệ ${escape(content.email)}."><link rel="icon" href="/assets/images/bbook-logo.png" type="image/png"><link rel="stylesheet" href="/legal.css"><script src="/analytics-config.js" defer></script><script src="/analytics.js" defer></script></head>
+<body${key === 'deletion' ? ' class="deletion-page"' : ''}><a class="skip-link" href="#content">Đến nội dung</a><header>${brand}<nav aria-label="Thông tin hỗ trợ"><a href="/privacy/">Quyền riêng tư</a><a href="/delete-account/">Xóa tài khoản</a></nav></header>
 <main id="content"><p class="eyebrow">B-BOOK · THÔNG TIN NGƯỜI DÙNG</p><h1>${escape(document.title)}</h1><p class="meta">Bản sửa đổi ${escape(content.revision)} · Dành cho người từ đủ 18 tuổi</p>
 ${key === 'deletion' ? `${document.intro ? `<p class="intro">${escape(document.intro)}</p>\n` : ''}<p class="request-action"><a href="${requestUrl}">Soạn email yêu cầu xóa tài khoản</a></p><p class="request-email">Email hỗ trợ: <a href="${requestUrl}">${escape(content.email)}</a></p>` : ''}
 ${body}
 ${key === 'deletion' ? '<p class="policy-link"><a href="/privacy/">Đọc Chính sách quyền riêng tư BBook</a></p>' : `<aside><h2>Liên hệ B-Book</h2><p><a href="mailto:${escape(content.email)}">${escape(content.email)}</a></p><p>Bấm liên kết để mở ứng dụng email, hoặc sao chép địa chỉ để gửi thư. Trang này không tự gửi yêu cầu.</p></aside>`}</main>
-<footer><a href="/">BBook</a><a href="/privacy/">Chính sách quyền riêng tư</a><a href="/delete-account/">Yêu cầu xóa tài khoản</a></footer></body></html>\n`;
+<footer>${brand}<a href="/privacy/">Chính sách quyền riêng tư</a><a href="/delete-account/">Yêu cầu xóa tài khoản</a></footer></body></html>\n`;
   await writeFile(path.join(root, file), html);
   const directory = path.join(root, file.replace(/\.html$/, ''));
   await mkdir(directory, { recursive: true });

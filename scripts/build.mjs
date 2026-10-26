@@ -9,7 +9,7 @@ if (path.dirname(output) !== root || path.basename(output) !== 'dist') throw new
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 await writeAnalyticsConfig(path.join(root, 'dist'));
-for (const file of ['index.html', 'styles.css', 'app.js', 'analytics.js', 'apk-counter.js', 'favicon.svg', 'privacy.html', 'delete-account.html', 'legal.css']) await copyFile(path.join(root, file), path.join(root, 'dist', file));
+for (const file of ['index.html', 'styles.css', 'app.js', 'analytics.js', 'apk-counter.js', 'privacy.html', 'delete-account.html', 'legal.css']) await copyFile(path.join(root, file), path.join(root, 'dist', file));
 const assets = path.join(root, 'assets');
 await cp(assets, path.join(output, 'assets'), { recursive: true, filter: source => {
   const relative = path.relative(assets, source);
