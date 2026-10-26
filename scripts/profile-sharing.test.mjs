@@ -36,7 +36,8 @@ test('real HTTP server serves the signing association directly and preserves exi
   assert.equal(profile.status, 301); assert.equal(profile.headers.get('location'), `https://beautybook-v3bi.onrender.com/mua/${id}`);
   const post = await get(`/posts/${id}?muaId=wrong-owner`); assert.equal(post.status, 301); assert.equal(post.headers.get('location'), `https://beautybook-v3bi.onrender.com/posts/${id}`);
   const head = await fetch(`${origin}/.well-known/assetlinks.json`, { method: 'HEAD' }); assert.equal(head.status, 200); assert.equal(await head.text(), '');
-  for (const path of ['/', '/privacy/', '/delete-account/', '/styles.css']) assert.equal((await get(path)).status, 200, path);
+  for (const path of ['/', '/privacy', '/privacy/', '/privacy.html', '/delete-account', '/delete-account/', '/delete-account.html', '/styles.css']) assert.equal((await get(path)).status, 200, path);
   const social = await get('/fb'); assert.equal(social.status, 301); assert.match(social.headers.get('location'), /^\/\?utm_source=facebook/);
+  for (const [path, source] of [['/tt', 'tiktok'], ['/threads', 'threads']]) { const response = await get(path); assert.equal(response.status, 301); assert.ok(response.headers.get('location').startsWith(`/?utm_source=${source}&`)); }
   for (const path of ['/.well-known/other.json', '/profile-sharing-redirects.json', '/.env.local', '/mua/not-an-id', '/assets/downloads/bbook-android.apk']) assert.equal((await get(path)).status, 404, path);
 });
