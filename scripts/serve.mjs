@@ -10,7 +10,7 @@ const root = path.resolve(import.meta.dirname, '..');
 // Node 22+: keep shell/Render values authoritative; local values stay out of Git.
 try { loadEnvFile(path.join(root, '.env.local')); } catch (error) { if (error.code !== 'ENOENT') throw error; }
 await writeAnalyticsConfig(root);
-const types = { '.html': 'text/html; charset=utf-8', '.json': 'application/json', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.apk': 'application/vnd.android.package-archive' };
+const types = { '.html': 'text/html; charset=utf-8', '.json': 'application/json', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg' };
 const server = http.createServer(async (req, res) => {
   try {
     const url = new URL(req.url, 'http://localhost');
@@ -30,7 +30,6 @@ const server = http.createServer(async (req, res) => {
     const info = await stat(file);
     if (!info.isFile()) { res.writeHead(404); res.end('Not found'); return; }
     const headers = { 'Content-Type': types[path.extname(file)], 'Content-Length': info.size, 'Cache-Control': 'no-cache' };
-    if (path.extname(file) === '.apk') headers['Content-Disposition'] = 'attachment; filename="BBook-test.apk"';
     res.writeHead(200, headers);
     if (req.method === 'HEAD') { res.end(); return; }
     const stream = createReadStream(file);

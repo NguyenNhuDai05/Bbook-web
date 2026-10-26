@@ -38,5 +38,5 @@ test('real HTTP server serves the signing association directly and preserves exi
   const head = await fetch(`${origin}/.well-known/assetlinks.json`, { method: 'HEAD' }); assert.equal(head.status, 200); assert.equal(await head.text(), '');
   for (const path of ['/', '/privacy/', '/delete-account/', '/styles.css']) assert.equal((await get(path)).status, 200, path);
   const social = await get('/fb'); assert.equal(social.status, 301); assert.match(social.headers.get('location'), /^\/\?utm_source=facebook/);
-  for (const path of ['/.well-known/other.json', '/profile-sharing-redirects.json', '/.env.local', '/mua/not-an-id']) assert.equal((await get(path)).status, 404, path);
+  for (const path of ['/.well-known/other.json', '/profile-sharing-redirects.json', '/.env.local', '/mua/not-an-id', '/assets/downloads/bbook-android.apk']) assert.equal((await get(path)).status, 404, path);
 });

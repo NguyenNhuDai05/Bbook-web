@@ -44,10 +44,10 @@ Mockup app là minh họa bằng HTML/CSS, không phải screenshot thật. Khô
 
 Landing page dùng Google Play để người dùng cài đặt và cập nhật BBook. Các nút tải APK, dung lượng file và hướng dẫn cài từ nguồn ngoài đã được thay bằng nút “Tải app” và hướng dẫn cài qua CH Play. Bộ đếm APK cũ không ghi nhận các lượt nhấn Google Play.
 
-Các file APK và quy trình đóng gói cũ bên dưới vẫn được giữ trong repository; build hiện vẫn sao chép APK sang `dist/`, nhưng landing page không còn liên kết tải file này.
+Website không còn lưu trữ hoặc phân phối APK. Các phần APK cũ, manifest và lệnh đóng gói APK đã được bỏ khỏi repository. Build không phụ thuộc bản Android và không thay đổi ảnh hay cấu hình cache.
 
-### Deploy APK từ Git
+### Deploy website trên Render
 
-File APK 119.279.946 byte vượt giới hạn 100 MiB của một file trên GitHub. `apk-release/` chứa các phần dưới 40 MiB và manifest SHA-256; cần commit toàn bộ thư mục này. `npm run build` ghép các phần, xác minh dung lượng và SHA-256 rồi đưa APK vào `dist/assets/downloads/`. Build sẽ thất bại nếu thiếu hoặc sai file, tránh triển khai nút tải không có APK.
+Giữ Build Command `npm run build` và Publish Directory `dist`. Build tạo lại thư mục `dist/` để loại bỏ APK còn sót từ lần build cũ, loại trừ `assets/downloads/` và mọi file `.apk` trong assets. Các ảnh được sao chép nguyên byte; các trang pháp lý và `.well-known/assetlinks.json` vẫn được xuất bình thường.
 
-Khi cập nhật APK: thay `assets/downloads/bbook-android.apk`, chạy `npm run package:apk`, commit các phần và manifest mới, rồi deploy lại. Render Static Site cần Build Command `npm run build` và Publish Directory `dist`. Sau deploy, kiểm tra `/assets/downloads/bbook-android.apk` trả HTTP 200 và đúng dung lượng trong manifest. APK hiện tại yêu cầu Android 7.0 trở lên.
+Sau khi tự deploy, kiểm tra trang chủ/nút Google Play, ảnh, trang pháp lý, link social và xác minh Android còn hoạt động. URL cũ `/assets/downloads/bbook-android.apk` phải trả 404 và không còn tải APK. Nếu hosting có rule fallback bắt mọi đường dẫn, cần bảo đảm URL này không trả nội dung APK; file không còn trong bản build. Source thay đổi không tự cập nhật nội dung đang chạy trước khi có deploy mới.
