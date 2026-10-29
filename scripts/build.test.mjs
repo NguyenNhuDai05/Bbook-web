@@ -14,10 +14,11 @@ test('build removes stale APKs, excludes installer assets and preserves images, 
     await rm(fixture, { recursive: true, force: true });
   });
   await mkdir(path.join(fixture, 'scripts'));
-  for (const file of ['build.mjs', 'generate-legal.mjs', 'analytics-config.mjs']) await cp(path.join(root, 'scripts', file), path.join(fixture, 'scripts', file));
+  for (const file of ['build.mjs', 'generate-legal.mjs', 'analytics-config.mjs', 'commerce-config.mjs']) await cp(path.join(root, 'scripts', file), path.join(fixture, 'scripts', file));
   for (const file of ['index.html', 'styles.css', 'app.js', 'analytics.js', 'apk-counter.js', 'legal.css', 'legal/content.json', '.well-known/assetlinks.json']) {
     const destination = path.join(fixture, file); await mkdir(path.dirname(destination), { recursive: true }); await cp(path.join(root, file), destination);
   }
+  await cp(path.join(root, 'mua'), path.join(fixture, 'mua'), { recursive: true });
   await cp(path.join(root, 'assets', 'images'), path.join(fixture, 'assets', 'images'), { recursive: true });
   await mkdir(path.join(fixture, 'assets', 'downloads')); await writeFile(path.join(fixture, 'assets', 'downloads', 'bbook-android.apk'), 'legacy installer');
   await writeFile(path.join(fixture, 'assets', 'other.APK'), 'another installer');

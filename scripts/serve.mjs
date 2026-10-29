@@ -3,6 +3,7 @@ import { stat } from 'node:fs/promises';
 import { createReadStream } from 'node:fs';
 import path from 'node:path';
 import { writeAnalyticsConfig } from './analytics-config.mjs';
+import { writeCommerceConfig } from './commerce-config.mjs';
 import { loadEnvFile } from 'node:process';
 import { socialRedirect } from './social-links.mjs';
 import { profileSharingRedirect } from './profile-sharing.mjs';
@@ -10,7 +11,8 @@ const root = path.resolve(import.meta.dirname, '..');
 // Node 22+: keep shell/Render values authoritative; local values stay out of Git.
 try { loadEnvFile(path.join(root, '.env.local')); } catch (error) { if (error.code !== 'ENOENT') throw error; }
 await writeAnalyticsConfig(root);
-const types = { '.html': 'text/html; charset=utf-8', '.json': 'application/json', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.avif': 'image/avif' };
+await writeCommerceConfig(path.join(root, 'mua'));
+const types = { '.mjs': 'text/javascript', '.html': 'text/html; charset=utf-8', '.json': 'application/json', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.avif': 'image/avif' };
 const server = http.createServer(async (req, res) => {
   try {
     const url = new URL(req.url, 'http://localhost');
@@ -20,13 +22,15 @@ const server = http.createServer(async (req, res) => {
       res.end();
       return;
     }
-    const routes = { '/privacy': '/privacy.html', '/privacy/': '/privacy.html', '/delete-account': '/delete-account.html', '/delete-account/': '/delete-account.html' };
-    const pathname = decodeURIComponent(url.pathname);
+    const routes = { '/account': '/mua/index.html', '/account/': '/mua/index.html', '/mua': '/mua/index.html', '/mua/': '/mua/index.html', '/privacy': '/privacy.html', '/privacy/': '/privacy.html', '/delete-account': '/delete-account.html', '/delete-account/': '/delete-account.html' };
+    let pathname = decodeURIComponent(url.pathname);
+    if (/^\/account\/(?:portal\.css|portal\.mjs|client\.mjs|commerce-config\.js)$/.test(pathname)) pathname = pathname.replace('/account/', '/mua/');
     const file = path.resolve(root, '.' + (pathname === '/' ? '/index.html' : routes[pathname] || pathname));
     const relative = path.relative(root, file);
     const isAsset = relative.startsWith('assets' + path.sep) && path.extname(file) !== '.json' && Object.hasOwn(types, path.extname(file));
+    const isPortal = ['index.html', 'portal.css', 'portal.mjs', 'client.mjs', 'commerce-config.js'].some(name => relative === path.join('mua', name));
     const isAssociation = relative === path.join('.well-known', 'assetlinks.json');
-    if (relative.startsWith('..') || path.isAbsolute(relative) || (!['index.html', 'styles.css', 'app.js', 'analytics.js', 'apk-counter.js', 'analytics-config.js', 'privacy.html', 'delete-account.html', 'legal.css'].includes(relative) && !isAsset && !isAssociation)) { res.writeHead(404); res.end('Not found'); return; }
+    if (relative.startsWith('..') || path.isAbsolute(relative) || (!['index.html', 'styles.css', 'app.js', 'analytics.js', 'apk-counter.js', 'analytics-config.js', 'privacy.html', 'delete-account.html', 'legal.css'].includes(relative) && !isAsset && !isAssociation && !isPortal)) { res.writeHead(404); res.end('Not found'); return; }
     const info = await stat(file);
     if (!info.isFile()) { res.writeHead(404); res.end('Not found'); return; }
     const headers = { 'Content-Type': types[path.extname(file)], 'Content-Length': info.size, 'Cache-Control': 'no-cache' };

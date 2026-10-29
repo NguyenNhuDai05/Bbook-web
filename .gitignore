@@ -5,3 +5,4 @@ assets/downloads/*.apk
 .env
 .env.local
 analytics-config.js
+mua/commerce-config.js

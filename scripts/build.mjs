@@ -2,6 +2,7 @@ import { mkdir, copyFile, cp, rm } from 'node:fs/promises';
 import path from 'node:path';
 import './generate-legal.mjs';
 import { writeAnalyticsConfig } from './analytics-config.mjs';
+import { writeCommerceConfig } from './commerce-config.mjs';
 const root = path.resolve(import.meta.dirname, '..');
 // Replace only the generated output, including APKs left by an older build.
 const output = path.resolve(root, 'dist');
@@ -16,6 +17,10 @@ await cp(assets, path.join(output, 'assets'), { recursive: true, filter: source 
   return relative !== 'downloads' && !relative.startsWith('downloads' + path.sep) && path.extname(source).toLowerCase() !== '.apk';
 } });
 for (const directory of ['privacy', 'delete-account']) await cp(path.join(root, directory), path.join(root, 'dist', directory), { recursive: true });
+await cp(path.join(root, 'mua'), path.join(output, 'mua'), { recursive: true });
+await cp(path.join(root, 'mua'), path.join(output, 'account'), { recursive: true });
+await writeCommerceConfig(path.join(output, 'account'));
+await writeCommerceConfig(path.join(output, 'mua'));
 await mkdir(path.join(root, 'dist', '.well-known'), { recursive: true });
 await copyFile(path.join(root, '.well-known', 'assetlinks.json'), path.join(root, 'dist', '.well-known', 'assetlinks.json'));
 console.log('Build hoàn tất: dist/');
